@@ -1,0 +1,17 @@
+PODS:
+  - ReactiveObjC (2.1.2)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
+
+DEPENDENCIES:
+  - ReactiveObjC (~> 2.1.0)
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+
+PODFILE CHECKSUM: 943b5988fd11189cdf2742b331ac8b44eb4256db
+
+COCOAPODS: 1.4.0
