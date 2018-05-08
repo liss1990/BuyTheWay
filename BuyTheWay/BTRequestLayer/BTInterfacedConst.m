@@ -28,3 +28,43 @@ NSString *const kSmsResponse=@"/users/getSmsCode";
 NSString *const kLogin = @"/users/login";
 /**重置用户密码*/
 NSString *const kResetPwdRequest=@"/users/resetPwd";
+/** 添加用户常用收件人信息保存*/
+NSString *const kSaveAddress=@"/addressee/saveCommonAddresses";
+/** 用户常用地址联系人列表获取 */
+NSString *const kGetAddress=@"/addressee/getCommonAddress";
+/** 删除常用地址 */
+NSString *const kDeleteAddress=@"/addressee/delete";
+
+/** 获取航班信息*/
+NSString *const kSearchFlight=@"/sell/flight/search";
+
+/** 卖家发布行程（航班）信息*/
+NSString *const kSellTripTask=@"/sell/tripTask";
+/** 买家发布信息 想购买的行程服务*/
+NSString *const kBuyTripTask=@"/buy/tripTask";
+/** 买家发布信息 想购买的行程服务*/
+NSString *const kMarrySellTripTaskList=@"/buy/marrySellTripTaskList";
+/** 取买家自己发布的需求列表 */
+NSString *const kGetBuyTripTaskList=@"/buy/getBuyTripTaskList";
+/**  买家预约行程 */
+NSString *const kBuyMarrySellTripTaskt=@"/buy/buyMarrySellTripTask";
+/** 买家获得自己的订单列表状态（从预约开始）*/
+NSString *const kBuyGetOrderList=@"/buy/getOrderList";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
