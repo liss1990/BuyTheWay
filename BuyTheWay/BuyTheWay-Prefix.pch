@@ -1,0 +1,27 @@
+//
+//  BuyTheWay-Prefix.pch
+//  BuyTheWay
+//
+//  Created by 李丝思 on 2018/5/8.
+//  Copyright © 2018年 思. All rights reserved.
+//
+
+#ifndef BuyTheWay_Prefix_h
+#define BuyTheWay_Prefix_h
+#import "SNUtils.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "SNTheme.h"
+#import "UIView+SN_IBSetting.h"
+#endif /* BuyTheWay_Prefix_h */
+
+
+//rgb16进制格式
+#define kHexRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define kHexRGBAlpha(rgbValue,a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:(a)]
+#define WeakSelf(type)  __weak typeof(type) weak##type = type;
+#define StrongSelf(type)  __strong typeof(type) type = weak##type;
+//适配屏幕
+#define FIX_SCREEN_WIDTH(x) (x*SCREEN_WIDTH/375.0)
+#define SCREEN_WIDTH    [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT   [UIScreen mainScreen].bounds.size.height
+#define RGB(R,G,B) [UIColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:1.0f]

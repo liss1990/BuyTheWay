@@ -8,6 +8,5 @@ target 'BuyTheWay' do
    use_frameworks!
    pod 'ReactiveObjC', '~> 2.1.0' 
    pod 'SDWebImage'
-#   pod 'HYBNetworking', '~> 3.3.0'
-
+   pod 'SVProgressHUD' 
 end

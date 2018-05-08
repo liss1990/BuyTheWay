@@ -61,6 +61,18 @@
 		77F5C6F22095CE4600709FDC /* Sell.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5C6E62095CE4600709FDC /* Sell.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		77F5C6F32095CE4600709FDC /* Messages.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5C6E72095CE4600709FDC /* Messages.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		77F5C6F42095CE4600709FDC /* Common.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5C6E82095CE4600709FDC /* Common.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		77FB608C20A1D810002FB1B8 /* BTWRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB608B20A1D810002FB1B8 /* BTWRootViewController.m */; };
+		77FB609020A1D883002FB1B8 /* SNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB608F20A1D883002FB1B8 /* SNUtils.m */; };
+		77FB609320A1D8B9002FB1B8 /* NSBundle+Localizations.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB609120A1D8B9002FB1B8 /* NSBundle+Localizations.m */; };
+		77FB60A820A1DBD7002FB1B8 /* UIView+SN_LSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB609E20A1DBD5002FB1B8 /* UIView+SN_LSCore.m */; };
+		77FB60A920A1DBD7002FB1B8 /* UIImage+SN_FromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB60A020A1DBD6002FB1B8 /* UIImage+SN_FromColor.m */; };
+		77FB60AB20A1DBD7002FB1B8 /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB60A520A1DBD6002FB1B8 /* UIImage+RTTint.m */; };
+		77FB60AC20A1DBD7002FB1B8 /* UIView+SN_IBSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB60A620A1DBD6002FB1B8 /* UIView+SN_IBSetting.m */; };
+		77FB60AD20A1DBD7002FB1B8 /* SNTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB60A720A1DBD7002FB1B8 /* SNTheme.m */; };
+		77FB60B020A1DCBF002FB1B8 /* BTWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB60AF20A1DCBF002FB1B8 /* BTWHomeViewController.m */; };
+		77FB60B420A1DD10002FB1B8 /* BTWVillageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB60B320A1DD10002FB1B8 /* BTWVillageViewController.m */; };
+		77FB60B820A1DD38002FB1B8 /* BTWIMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB60B720A1DD38002FB1B8 /* BTWIMViewController.m */; };
+		77FB60BC20A1DD54002FB1B8 /* BTWMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB60BB20A1DD54002FB1B8 /* BTWMeViewController.m */; };
 		A58CC377C250A45F65957F81 /* Pods_BuyTheWay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF94C76E35EC5FD45E19FA67 /* Pods_BuyTheWay.framework */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +230,31 @@
 		77F5C6E82095CE4600709FDC /* Common.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.pbobjc.m; sourceTree = "<group>"; };
 		77F5C6E92095CE4600709FDC /* Addressee.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Addressee.pbobjc.h; sourceTree = "<group>"; };
 		77F5C6EA2095CE4600709FDC /* Buy.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buy.pbobjc.h; sourceTree = "<group>"; };
+		77FB608520A1D80F002FB1B8 /* BTWRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTWRootViewController.h; sourceTree = "<group>"; };
+		77FB608B20A1D810002FB1B8 /* BTWRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTWRootViewController.m; sourceTree = "<group>"; };
+		77FB608E20A1D883002FB1B8 /* SNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNUtils.h; sourceTree = "<group>"; };
+		77FB608F20A1D883002FB1B8 /* SNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNUtils.m; sourceTree = "<group>"; };
+		77FB609120A1D8B9002FB1B8 /* NSBundle+Localizations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Localizations.m"; sourceTree = "<group>"; };
+		77FB609220A1D8B9002FB1B8 /* NSBundle+Localizations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Localizations.h"; sourceTree = "<group>"; };
+		77FB609520A1D98D002FB1B8 /* BuyTheWay-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BuyTheWay-Prefix.pch"; sourceTree = "<group>"; };
+		77FB609C20A1DBD5002FB1B8 /* UIView+SN_LSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SN_LSCore.h"; sourceTree = "<group>"; };
+		77FB609D20A1DBD5002FB1B8 /* UIImage+RTTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RTTint.h"; sourceTree = "<group>"; };
+		77FB609E20A1DBD5002FB1B8 /* UIView+SN_LSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SN_LSCore.m"; sourceTree = "<group>"; };
+		77FB609F20A1DBD6002FB1B8 /* UIImage+SN_FromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SN_FromColor.h"; sourceTree = "<group>"; };
+		77FB60A020A1DBD6002FB1B8 /* UIImage+SN_FromColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SN_FromColor.m"; sourceTree = "<group>"; };
+		77FB60A320A1DBD6002FB1B8 /* UIView+SN_IBSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SN_IBSetting.h"; sourceTree = "<group>"; };
+		77FB60A420A1DBD6002FB1B8 /* SNTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNTheme.h; sourceTree = "<group>"; };
+		77FB60A520A1DBD6002FB1B8 /* UIImage+RTTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RTTint.m"; sourceTree = "<group>"; };
+		77FB60A620A1DBD6002FB1B8 /* UIView+SN_IBSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SN_IBSetting.m"; sourceTree = "<group>"; };
+		77FB60A720A1DBD7002FB1B8 /* SNTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNTheme.m; sourceTree = "<group>"; };
+		77FB60AE20A1DCBF002FB1B8 /* BTWHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTWHomeViewController.h; sourceTree = "<group>"; };
+		77FB60AF20A1DCBF002FB1B8 /* BTWHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTWHomeViewController.m; sourceTree = "<group>"; };
+		77FB60B220A1DD10002FB1B8 /* BTWVillageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTWVillageViewController.h; sourceTree = "<group>"; };
+		77FB60B320A1DD10002FB1B8 /* BTWVillageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTWVillageViewController.m; sourceTree = "<group>"; };
+		77FB60B620A1DD38002FB1B8 /* BTWIMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTWIMViewController.h; sourceTree = "<group>"; };
+		77FB60B720A1DD38002FB1B8 /* BTWIMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTWIMViewController.m; sourceTree = "<group>"; };
+		77FB60BA20A1DD54002FB1B8 /* BTWMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTWMeViewController.h; sourceTree = "<group>"; };
+		77FB60BB20A1DD54002FB1B8 /* BTWMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTWMeViewController.m; sourceTree = "<group>"; };
 		BF94C76E35EC5FD45E19FA67 /* Pods_BuyTheWay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuyTheWay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -288,6 +325,8 @@
 		777F54272099F35000ADC7E5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				77FB608520A1D80F002FB1B8 /* BTWRootViewController.h */,
+				77FB608B20A1D810002FB1B8 /* BTWRootViewController.m */,
 				77F5C68E2095CBEC00709FDC /* AppDelegate.h */,
 				77F5C68F2095CBEC00709FDC /* AppDelegate.m */,
 				77F5C6942095CBEC00709FDC /* Main.storyboard */,
@@ -299,6 +338,8 @@
 		777F54282099F39B00ADC7E5 /* HOME */ = {
 			isa = PBXGroup;
 			children = (
+				77FB60AE20A1DCBF002FB1B8 /* BTWHomeViewController.h */,
+				77FB60AF20A1DCBF002FB1B8 /* BTWHomeViewController.m */,
 			);
 			path = HOME;
 			sourceTree = "<group>";
@@ -438,8 +479,12 @@
 		77F5C68D2095CBEC00709FDC /* BuyTheWay */ = {
 			isa = PBXGroup;
 			children = (
-				777F54282099F39B00ADC7E5 /* HOME */,
+				77FB60B920A1DD45002FB1B8 /* Me */,
+				77FB60B520A1DD23002FB1B8 /* IMMessage */,
+				77FB60B120A1DCF9002FB1B8 /* Village */,
+				77FB609B20A1DB7D002FB1B8 /* Commen */,
 				777F54272099F35000ADC7E5 /* Main */,
+				777F54282099F39B00ADC7E5 /* HOME */,
 				777F54262099F33D00ADC7E5 /* Login */,
 				77BC55662098BCBA00836493 /* BTRequestLayer */,
 				77BC550F2098BB5D00836493 /* Framwork */,
@@ -447,6 +492,7 @@
 				77F5C6C02095CBF800709FDC /* Lib */,
 				77F5C6912095CBEC00709FDC /* ViewController.h */,
 				77F5C6922095CBEC00709FDC /* ViewController.m */,
+				77FB609520A1D98D002FB1B8 /* BuyTheWay-Prefix.pch */,
 				77F5C6992095CBEE00709FDC /* LaunchScreen.storyboard */,
 				77F5C69C2095CBEE00709FDC /* Info.plist */,
 				77F5C69D2095CBEE00709FDC /* main.m */,
@@ -548,6 +594,62 @@
 				77F5C6EA2095CE4600709FDC /* Buy.pbobjc.h */,
 			);
 			path = protocol;
+			sourceTree = "<group>";
+		};
+		77FB608D20A1D86B002FB1B8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				77FB608E20A1D883002FB1B8 /* SNUtils.h */,
+				77FB608F20A1D883002FB1B8 /* SNUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		77FB609B20A1DB7D002FB1B8 /* Commen */ = {
+			isa = PBXGroup;
+			children = (
+				77FB60A420A1DBD6002FB1B8 /* SNTheme.h */,
+				77FB60A720A1DBD7002FB1B8 /* SNTheme.m */,
+				77FB609D20A1DBD5002FB1B8 /* UIImage+RTTint.h */,
+				77FB60A520A1DBD6002FB1B8 /* UIImage+RTTint.m */,
+				77FB609F20A1DBD6002FB1B8 /* UIImage+SN_FromColor.h */,
+				77FB60A020A1DBD6002FB1B8 /* UIImage+SN_FromColor.m */,
+				77FB60A320A1DBD6002FB1B8 /* UIView+SN_IBSetting.h */,
+				77FB60A620A1DBD6002FB1B8 /* UIView+SN_IBSetting.m */,
+				77FB609C20A1DBD5002FB1B8 /* UIView+SN_LSCore.h */,
+				77FB609E20A1DBD5002FB1B8 /* UIView+SN_LSCore.m */,
+				77FB609220A1D8B9002FB1B8 /* NSBundle+Localizations.h */,
+				77FB609120A1D8B9002FB1B8 /* NSBundle+Localizations.m */,
+				77FB608D20A1D86B002FB1B8 /* Utils */,
+			);
+			path = Commen;
+			sourceTree = "<group>";
+		};
+		77FB60B120A1DCF9002FB1B8 /* Village */ = {
+			isa = PBXGroup;
+			children = (
+				77FB60B220A1DD10002FB1B8 /* BTWVillageViewController.h */,
+				77FB60B320A1DD10002FB1B8 /* BTWVillageViewController.m */,
+			);
+			path = Village;
+			sourceTree = "<group>";
+		};
+		77FB60B520A1DD23002FB1B8 /* IMMessage */ = {
+			isa = PBXGroup;
+			children = (
+				77FB60B620A1DD38002FB1B8 /* BTWIMViewController.h */,
+				77FB60B720A1DD38002FB1B8 /* BTWIMViewController.m */,
+			);
+			path = IMMessage;
+			sourceTree = "<group>";
+		};
+		77FB60B920A1DD45002FB1B8 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				77FB60BA20A1DD54002FB1B8 /* BTWMeViewController.h */,
+				77FB60BB20A1DD54002FB1B8 /* BTWMeViewController.m */,
+			);
+			path = Me;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -744,11 +846,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BuyTheWay/Pods-BuyTheWay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -781,43 +885,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				77BC555F2098BC4100836493 /* AFSecurityPolicy.m in Sources */,
+				77FB60B820A1DD38002FB1B8 /* BTWIMViewController.m in Sources */,
 				77BC555C2098BC4100836493 /* AFURLSessionManager.m in Sources */,
 				77BC55512098BC4100836493 /* UIProgressView+AFNetworking.m in Sources */,
 				770B670D209EE1FD006C8191 /* BasicEncodingRules.m in Sources */,
 				77BC55542098BC4100836493 /* UIImageView+AFNetworking.m in Sources */,
+				77FB60B420A1DD10002FB1B8 /* BTWVillageViewController.m in Sources */,
 				77BC55692098BE7400836493 /* BTInterfacedConst.m in Sources */,
 				77BC55552098BC4100836493 /* UIButton+AFNetworking.m in Sources */,
 				77BC55612098BC4100836493 /* PPNetworkCache.m in Sources */,
 				77F5C6F42095CE4600709FDC /* Common.pbobjc.m in Sources */,
 				77BC55522098BC4100836493 /* UIRefreshControl+AFNetworking.m in Sources */,
+				77FB60B020A1DCBF002FB1B8 /* BTWHomeViewController.m in Sources */,
 				77F4A2F220A07FBB00B0D406 /* RSAEncryptor.m in Sources */,
 				77F5C6F22095CE4600709FDC /* Sell.pbobjc.m in Sources */,
 				77F4A2F520A0C3BD00B0D406 /* BTWNetworkHelper.m in Sources */,
 				77BC55642098BC4100836493 /* YYKVStorage.m in Sources */,
+				77FB608C20A1D810002FB1B8 /* BTWRootViewController.m in Sources */,
 				77BC55532098BC4100836493 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				77BC55632098BC4100836493 /* YYCache.m in Sources */,
 				77F5C6EE2095CE4600709FDC /* Amount.pbobjc.m in Sources */,
 				77BC55562098BC4100836493 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				77F5C6F12095CE4600709FDC /* Buy.pbobjc.m in Sources */,
+				77FB60AD20A1DBD7002FB1B8 /* SNTheme.m in Sources */,
+				77FB609020A1D883002FB1B8 /* SNUtils.m in Sources */,
 				77BC55652098BC4100836493 /* YYMemoryCache.m in Sources */,
 				77F5C6932095CBEC00709FDC /* ViewController.m in Sources */,
+				77FB60A920A1DBD7002FB1B8 /* UIImage+SN_FromColor.m in Sources */,
 				77F4A2EB20A07DF300B0D406 /* NSData+RSA.m in Sources */,
 				77F5C69E2095CBEE00709FDC /* main.m in Sources */,
 				777F542B209A013B00ADC7E5 /* BTHTTPRequest.m in Sources */,
+				77FB609320A1D8B9002FB1B8 /* NSBundle+Localizations.m in Sources */,
 				77BC55582098BC4100836493 /* AFAutoPurgingImageCache.m in Sources */,
 				77BC55572098BC4100836493 /* UIWebView+AFNetworking.m in Sources */,
 				777F5435209A13A100ADC7E5 /* RSA.m in Sources */,
 				77F5C6EB2095CE4600709FDC /* Cardauth.pbobjc.m in Sources */,
 				77F4A2EA20A07DF300B0D406 /* RSAPubKey.m in Sources */,
 				77BC55622098BC4100836493 /* YYDiskCache.m in Sources */,
+				77FB60BC20A1DD54002FB1B8 /* BTWMeViewController.m in Sources */,
 				77BC555B2098BC4100836493 /* AFHTTPSessionManager.m in Sources */,
 				77F5C6ED2095CE4600709FDC /* Village.pbobjc.m in Sources */,
+				77FB60AC20A1DBD7002FB1B8 /* UIView+SN_IBSetting.m in Sources */,
 				77F5C6902095CBEC00709FDC /* AppDelegate.m in Sources */,
+				77FB60AB20A1DBD7002FB1B8 /* UIImage+RTTint.m in Sources */,
 				77BC555E2098BC4100836493 /* AFNetworkReachabilityManager.m in Sources */,
 				77BC555D2098BC4100836493 /* AFURLRequestSerialization.m in Sources */,
 				777F54252099E74E00ADC7E5 /* NSString+SHA.m in Sources */,
 				77F5C6EF2095CE4600709FDC /* Business.pbobjc.m in Sources */,
 				77BC55602098BC4100836493 /* PPNetworkHelper.m in Sources */,
+				77FB60A820A1DBD7002FB1B8 /* UIView+SN_LSCore.m in Sources */,
 				77F5C6F02095CE4600709FDC /* Addressee.pbobjc.m in Sources */,
 				77F5C6F32095CE4600709FDC /* Messages.pbobjc.m in Sources */,
 				77F5C6EC2095CE4600709FDC /* Users.pbobjc.m in Sources */,
@@ -994,9 +1110,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BuyTheWay/BuyTheWay-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT)/Lib";
 				INFOPLIST_FILE = BuyTheWay/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Buytheway.BuyTheWay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1010,9 +1130,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BuyTheWay/BuyTheWay-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT)/Lib";
 				INFOPLIST_FILE = BuyTheWay/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Buytheway.BuyTheWay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1026,7 +1150,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BuyTheWayTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Buytheway.BuyTheWayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1040,7 +1168,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BuyTheWayTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Buytheway.BuyTheWayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1053,7 +1185,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BuyTheWayUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Buytheway.BuyTheWayUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1066,7 +1202,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BuyTheWayUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Buytheway.BuyTheWayUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
