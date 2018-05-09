@@ -9,17 +9,30 @@
 #import "BTHTTPRequest.h"
 #import "BTInterfacedConst.h"
 #import "BTWNetworkHelper.h"
-#import "Users.pbobjc.h"
-#import "Common.pbobjc.h"
+
 @implementation BTHTTPRequest
+
++(BOOL)showHud:(RetCode *)coder{
+    if (coder.code == 1) {
+        [SNUtils showHUDSuccessWithStatus:coder.msg];
+          [SNUtils hideHUD];
+        return YES;
+    }else{
+        [SNUtils showHUDErrorWithStatus:coder.msg];
+          [SNUtils hideHUD];
+        return  NO;
+    }
+}
+
 /**login*/
 + (void)loginWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure{
     NSString *url = kLogin;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        LoginResponse *per = [LoginResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        NSLog(@"%@  ---- >>   %@",per.retCode,per.token);
-        success(per);
+        LoginResponse *per = [LoginResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+              success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误-->>>>>%@",error.localizedDescription);
     }];
@@ -30,8 +43,10 @@
     NSString *url = kRegister;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        RegisterAfterRequest *per = [RegisterAfterRequest parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -42,8 +57,10 @@
     NSString *url = kSmsResponse;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        GetSmsResponse *per = [GetSmsResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        GetSmsResponse *per = [GetSmsResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -55,8 +72,10 @@
     NSString *url = kResetPwdRequest;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -67,8 +86,10 @@
     NSString *url = kSaveAddress;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        BaseResponse *per = [BaseResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -78,8 +99,10 @@
     NSString *url = kGetAddress;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -90,8 +113,10 @@
     NSString *url = kDeleteAddress;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -102,8 +127,10 @@
     NSString *url = kSearchFlight;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -114,8 +141,10 @@
     NSString *url = kSellTripTask;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -126,8 +155,10 @@
     NSString *url = kBuyTripTask;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -137,8 +168,10 @@
     NSString *url = kMarrySellTripTaskList;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -148,8 +181,10 @@
     NSString *url = kGetBuyTripTaskList;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -160,8 +195,10 @@
     NSString *url = kBuyMarrySellTripTaskt;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
@@ -172,8 +209,10 @@
     NSString *url = kBuyGetOrderList;
     [BTWNetworkHelper requestWithUrl:url methodType:post  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseDelimitedFromCodedInputStream:data extensionRegistry:nil error:&error];
-        success(per);
+        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
     } failure:^(NSError *error) {
         NSLog(@"网络错误%@",error.localizedDescription);
     }];

@@ -7,14 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Users.pbobjc.h"
+#import "Common.pbobjc.h"
 typedef void(^BTRequestSuccess)(id response);
 
 typedef void(^BTRequestFailure)(NSError *error);
 
 
-@interface BTHTTPRequest : NSObject
 
+@interface BTHTTPRequest : NSObject
++(BOOL)showHud:(RetCode *)coder;
 /**login*/
 + (void)loginWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure;
 

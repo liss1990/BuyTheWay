@@ -24,7 +24,7 @@
 
 +(void)hideHUD{
     [self setupHud];
-    [SVProgressHUD dismissWithDelay:0.2];
+    [SVProgressHUD dismissWithDelay:1.5];
 }
 
 +(void)showHUDSuccessWithStatus:(NSString *)status{
