@@ -53,6 +53,17 @@ typedef void(^BTRequestFailure)(NSError *error);
 /**买家获得自己的订单列表状态（从预约开始*/
 + (void)buyGetOrderListWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure;
 
+/***卖家 回复买家预约的*/
++ (void)sellReplyTripTaskWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure;
+
+/***卖家查询发布的行程*/
++ (void)sellGetTripTaskListWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure;
+/***城市搜索*/
++ (void)sellSearchcitytWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure;
+/***常用城市搜索*/
++ (void)sellCommonSearchcityWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure;
+/***卖家查询订单列表  /sell/getOrderList*/
++ (void)sellGetOrderListWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure;
 
 
 

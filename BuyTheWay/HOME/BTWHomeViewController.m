@@ -27,7 +27,9 @@
 @property(nonatomic,strong)UIButton * deleteAddressBtn;
 
 @property(nonatomic,strong)UIButton * flightMessage; //获取航班信息;
-@property(nonatomic,strong)UIButton * buytriptask; // 想购买的行程服务;
+@property(nonatomic,strong)UIButton * selltriptask; // 想购买的行程服务;
+@property(nonatomic,strong)UIButton * buyerTask;////买家发布信息
+
 @end
 
 @implementation BTWHomeViewController
@@ -84,9 +86,6 @@
     [self.deleteAddressBtn addTarget:self action:@selector(deleteAddress) forControlEvents:1<<6];
     [self.view addSubview:self.deleteAddressBtn];
     
-    
-    
-    
     self.flightMessage = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.flightMessage setTitle:@"获取航班信息" forState:0];
     self.flightMessage.backgroundColor = [UIColor redColor];
@@ -94,12 +93,19 @@
     [self.flightMessage addTarget:self action:@selector(flight) forControlEvents:1<<6];
     [self.view addSubview:self.flightMessage];
     
-    self.buytriptask = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.buytriptask setTitle:@"购买想买的服务" forState:0];
-    self.buytriptask.backgroundColor = [UIColor redColor];
-    self.buytriptask.frame = CGRectMake(10, 80+ 60+60+60+60+60+60, 120, 50);
-    [self.buytriptask addTarget:self action:@selector(sellTripTask) forControlEvents:1<<6];
-    [self.view addSubview:self.buytriptask];
+    self.selltriptask = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.selltriptask setTitle:@"卖家发布行程" forState:0];
+    self.selltriptask.backgroundColor = [UIColor redColor];
+    self.selltriptask.frame = CGRectMake(10, 80+ 60+60+60+60+60+60, 120, 50);
+    [self.selltriptask addTarget:self action:@selector(sellTripTask) forControlEvents:1<<6];
+    [self.view addSubview:self.selltriptask];
+    
+    self.buyerTask = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.buyerTask setTitle:@"买家发布信息" forState:0];
+    self.buyerTask.backgroundColor = [UIColor redColor];
+    self.buyerTask.frame = CGRectMake(10+130, 80+ 60+60+60+60+60+60, 120, 50);
+    [self.buyerTask addTarget:self action:@selector(buytripTask) forControlEvents:1<<6];
+    [self.view addSubview:self.buyerTask];
     
 }
 
@@ -214,7 +220,6 @@
 }
 
 -(void)getAddress{
-    
     GetUserAddresseeListRequest *list = [[GetUserAddresseeListRequest alloc]init];
     PageDataRequest *page = [[PageDataRequest alloc]init];
     page.currentPage=1;
@@ -263,20 +268,20 @@
     
 }
 
-
-
 -(void)buytripTask{
-    BuyTripTaskRequest *trip = [[BuyTripTaskRequest alloc]init];
     BuyTripTaskInfo *info = [[BuyTripTaskInfo alloc]init];
-    info.buyTripTaskId = @"666666";
-    trip.taskInfo = info;
-    [BTHTTPRequest buyTripTaskWithParameters:trip success:^(id response) {
+    SpaceInfo *sp = [[SpaceInfo alloc]init];
+    sp.spaceWidth = 33;
+    sp.spaceHeight = 44;
+    info.buySpace = sp;
+    [BTHTTPRequest buyTripTaskWithParameters:info success:^(id response) {
         
     } failure:^(NSError *error) {
         
     }];
     
 }
+
 
 
 - (void)didReceiveMemoryWarning {

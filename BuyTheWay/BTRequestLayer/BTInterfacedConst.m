@@ -49,13 +49,22 @@ NSString *const kGetBuyTripTaskList=@"/buy/getBuyTripTaskList";
 /**  买家预约行程 */
 NSString *const kBuyMarrySellTripTaskt=@"/buy/buyMarrySellTripTask";
 /** 买家获得自己的订单列表状态（从预约开始）*/
-NSString *const kBuyGetOrderList=@"/buy/getOrderList"; 
+NSString *const kBuyGetOrderList=@"/buy/getOrderList";
 
+/**卖家 回复买家预约的 /sell/sellReplyTripTask*/
+NSString *const ksellReplyTripTask=@"/sell/sellReplyTripTask";
 
+/**卖家查询发布的行程  /sell/getTripTaskList*/
+NSString *const kSellGetTripTaskList=@"/sell/getTripTaskList";
 
+/**城市搜索 /sell/searchcity*/
+NSString *const kSellSearchcity=@"/sell/searchcity";
 
-
-
+/**常用城市搜索 请求/sell/common/searchcity*/
+NSString *const kSellCommonSearchcity=@"/sell/common/searchcity";
+////
+/**卖家查询订单列表  /sell/getOrderList*/
+NSString *const kSellGetOrderList=@"/sell/getOrderList";
 
 
 

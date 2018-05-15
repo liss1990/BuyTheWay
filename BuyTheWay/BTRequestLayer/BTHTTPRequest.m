@@ -11,6 +11,7 @@
 #import "BTWNetworkHelper.h"
 #import "Sell.pbobjc.h"
 #import "Addressee.pbobjc.h"
+#import "Buy.pbobjc.h"
 @implementation BTHTTPRequest
 
 +(BOOL)showHud:(RetCode *)coder{
@@ -142,7 +143,7 @@
     NSString *url = kSellTripTask;
     [BTWNetworkHelper requestWithUrl:url methodType:post  isKey:true body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        SellTripTaskResponse *per = [SellTripTaskResponse parseFromData:data error:&error];
         if ([self showHud:per.retCode]) {
             success(per);
         }
@@ -156,7 +157,7 @@
     NSString *url = kBuyTripTask;
     [BTWNetworkHelper requestWithUrl:url methodType:post  isKey:true body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        BuyTripTaskResponse *per = [BuyTripTaskResponse parseFromData:data error:&error];
         if ([self showHud:per.retCode]) {
             success(per);
         }
@@ -164,12 +165,13 @@
         NSLog(@"网络错误%@",error.localizedDescription);
     }];
 }
+
 /**根据/buy/tripTask取回的id去匹配卖家发布列表*/
 + (void)marrySellTripTaskLisWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure{
     NSString *url = kMarrySellTripTaskList;
     [BTWNetworkHelper requestWithUrl:url methodType:post  isKey:true body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        MarrySellTripTaskListResponse *per = [MarrySellTripTaskListResponse parseFromData:data error:&error];
         if ([self showHud:per.retCode]) {
             success(per);
         }
@@ -182,7 +184,7 @@
     NSString *url = kGetBuyTripTaskList;
     [BTWNetworkHelper requestWithUrl:url methodType:post  isKey:true body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        GetBuyTripTaskListResponse *per = [GetBuyTripTaskListResponse parseFromData:data error:&error];
         if ([self showHud:per.retCode]) {
             success(per);
         }
@@ -196,7 +198,7 @@
     NSString *url = kBuyMarrySellTripTaskt;
     [BTWNetworkHelper requestWithUrl:url methodType:post isKey:true  body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        BuyMarrySellTripTaskRespons *per = [BuyMarrySellTripTaskRespons parseFromData:data error:&error];
         if ([self showHud:per.retCode]) {
             success(per);
         }
@@ -210,7 +212,7 @@
     NSString *url = kBuyGetOrderList;
     [BTWNetworkHelper requestWithUrl:url methodType:post  isKey:true body:parameters showLoading:YES success:^(id data) {
         NSError *error;
-        ResetPwdResponse *per = [ResetPwdResponse parseFromData:data error:&error];
+        GetBuyOrderListResponse *per = [GetBuyOrderListResponse parseFromData:data error:&error];
         if ([self showHud:per.retCode]) {
             success(per);
         }
@@ -219,8 +221,74 @@
     }];
 }
 
+/***卖家 回复买家预约的*/
++ (void)sellReplyTripTaskWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure{
+    NSString *url = ksellReplyTripTask;
+    [BTWNetworkHelper requestWithUrl:url methodType:post  isKey:true body:parameters showLoading:YES success:^(id data) {
+        NSError *error;
+        GetBuyOrderListResponse *per = [GetBuyOrderListResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"网络错误%@",error.localizedDescription);
+    }];
+    
+}
 
+/***卖家查询发布的行程*/
++ (void)sellGetTripTaskListWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure{
+    NSString *url = kSellGetTripTaskList;
+    [BTWNetworkHelper requestWithUrl:url methodType:post  isKey:true body:parameters showLoading:YES success:^(id data) {
+        NSError *error;
+        GetBuyOrderListResponse *per = [GetBuyOrderListResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"网络错误%@",error.localizedDescription);
+    }];
+}
+/***城市搜索*/
++ (void)sellSearchcitytWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure{
+    NSString *url = kSellSearchcity;
+    [BTWNetworkHelper requestWithUrl:url methodType:post  isKey:true body:parameters showLoading:YES success:^(id data) {
+        NSError *error;
+        GetBuyOrderListResponse *per = [GetBuyOrderListResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"网络错误%@",error.localizedDescription);
+    }];
+}
+/***常用城市搜索*/
++ (void)sellCommonSearchcityWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure{
+    NSString *url = kSellCommonSearchcity;
+    [BTWNetworkHelper requestWithUrl:url methodType:post  isKey:true body:parameters showLoading:YES success:^(id data) {
+        NSError *error;
+        GetBuyOrderListResponse *per = [GetBuyOrderListResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"网络错误%@",error.localizedDescription);
+    }];
+}
 
+/***卖家查询订单列表  /sell/getOrderList*/
++ (void)sellGetOrderListWithParameters:(id)parameters success:(BTRequestSuccess)success failure:(BTRequestFailure)failure{
+    NSString *url = kSellGetOrderList;
+    [BTWNetworkHelper requestWithUrl:url methodType:post  isKey:true body:parameters showLoading:YES success:^(id data) {
+        NSError *error;
+        GetSellOrderListResponse *per = [GetSellOrderListResponse parseFromData:data error:&error];
+        if ([self showHud:per.retCode]) {
+            success(per);
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"网络错误%@",error.localizedDescription);
+    }];
+}
 
 
 

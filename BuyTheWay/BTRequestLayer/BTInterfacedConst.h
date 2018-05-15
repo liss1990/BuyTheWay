@@ -48,15 +48,18 @@ UIKIT_EXTERN NSString *const kGetBuyTripTaskList;
 UIKIT_EXTERN NSString *const kBuyMarrySellTripTaskt;
 /** 买家获得自己的订单列表状态（从预约开始）/buy/getOrderList */
 UIKIT_EXTERN NSString *const kBuyGetOrderList; 
+/**卖家 回复买家预约的 /sell/sellReplyTripTask*/
+UIKIT_EXTERN NSString *const ksellReplyTripTask;
+/**卖家查询发布的行程  getTripTaskList*/
+UIKIT_EXTERN NSString *const kSellGetTripTaskList;
 
+/**城市搜索 /sell/searchcity*/
+UIKIT_EXTERN NSString *const kSellSearchcity;
 
-
-
-
-
-
-
-
+/**常用城市搜索 请求/sell/common/searchcity*/
+UIKIT_EXTERN NSString *const kSellCommonSearchcity;
+/**卖家查询订单列表  /sell/getOrderList*/
+UIKIT_EXTERN NSString *const kSellGetOrderList;
 
 
 
