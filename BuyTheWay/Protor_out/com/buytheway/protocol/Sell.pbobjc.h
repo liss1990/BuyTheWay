@@ -30,12 +30,15 @@ CF_EXTERN_C_BEGIN
 @class AddressInfo;
 @class CityInfo;
 @class FlightInfo;
-@class MySaleTripTask;
 @class OrderInfo;
+@class PageDataRequest;
 @class PhoneNumber;
 @class RetCode;
+@class SellReleaseTripTask;
 @class SpaceInfo;
 GPB_ENUM_FWD_DECLARE(MesCode);
+GPB_ENUM_FWD_DECLARE(OrderStatus);
+GPB_ENUM_FWD_DECLARE(SellTripTaskStatuEnum);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -61,7 +64,7 @@ typedef GPB_ENUM(SearchFlightInfoRequest_FieldNumber) {
 };
 
 /**
- * 获取航班信息  /sell/flight/search
+ * 1.1获取航班信息  /sell/flight/search
  **/
 @interface SearchFlightInfoRequest : GPBMessage
 
@@ -72,13 +75,18 @@ typedef GPB_ENUM(SearchFlightInfoRequest_FieldNumber) {
 #pragma mark - SearchFlightInfoResponse
 
 typedef GPB_ENUM(SearchFlightInfoResponse_FieldNumber) {
-  SearchFlightInfoResponse_FieldNumber_FlightInfoArray = 1,
+  SearchFlightInfoResponse_FieldNumber_RetCode = 1,
+  SearchFlightInfoResponse_FieldNumber_FlightInfoArray = 2,
 };
 
 /**
  * 获取航班信息返回对象
  **/
 @interface SearchFlightInfoResponse : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) RetCode *retCode;
+/** Test to see if @c retCode has been set. */
+@property(nonatomic, readwrite) BOOL hasRetCode;
 
 /** 返回航班信息列表 */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<FlightInfo*> *flightInfoArray;
@@ -94,33 +102,51 @@ typedef GPB_ENUM(SellTripTaskRequest_FieldNumber) {
 };
 
 /**
- * 卖家发布行程（航班）信息 ，space等；即 行程任务信息 定义为TripTask   /sell/tripTask
+ * 1.2卖家发布行程（航班）信息 ，space等；即 行程任务信息 定义为TripTask   /sell/tripTask
  **/
 @interface SellTripTaskRequest : GPBMessage
 
-@property(nonatomic, readwrite, strong, null_resettable) MySaleTripTask *taskInfo;
+@property(nonatomic, readwrite, strong, null_resettable) SellReleaseTripTask *taskInfo;
 /** Test to see if @c taskInfo has been set. */
 @property(nonatomic, readwrite) BOOL hasTaskInfo;
+
+@end
+
+#pragma mark - SellTripTaskResponse
+
+typedef GPB_ENUM(SellTripTaskResponse_FieldNumber) {
+  SellTripTaskResponse_FieldNumber_RetCode = 1,
+  SellTripTaskResponse_FieldNumber_SellTripTaskId = 2,
+};
+
+@interface SellTripTaskResponse : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) RetCode *retCode;
+/** Test to see if @c retCode has been set. */
+@property(nonatomic, readwrite) BOOL hasRetCode;
+
+/** 卖家发布任务后成功 返回id */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *sellTripTaskId;
 
 @end
 
 #pragma mark - SellReplyTripTaskRequest
 
 typedef GPB_ENUM(SellReplyTripTaskRequest_FieldNumber) {
-  SellReplyTripTaskRequest_FieldNumber_MarrySellTripTaskId = 1,
+  SellReplyTripTaskRequest_FieldNumber_OrderId = 1,
   SellReplyTripTaskRequest_FieldNumber_Answer = 2,
   SellReplyTripTaskRequest_FieldNumber_Mes = 3,
 };
 
 /**
- * 卖家 回复买家预约的 /sell/sellReplyTripTask
+ * 1.3卖家 回复买家预约的 /sell/sellReplyTripTask
  **/
 @interface SellReplyTripTaskRequest : GPBMessage
 
-/** 买家预约任务id */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *marrySellTripTaskId;
+/** 预约任务id 即订单id */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *orderId;
 
-/** 回复结果  true代表同意 */
+/** 回复结果  true代表同意  如果同意 需要根据预约id 订单id 来生成待支付订单  订单状态为待支付，  如果拒绝则作废订单释放库存 */
 @property(nonatomic, readwrite) BOOL answer;
 
 /** 拒绝原因这里 */
@@ -140,41 +166,106 @@ int32_t SellReplyTripTaskRequest_Mes_RawValue(SellReplyTripTaskRequest *message)
  **/
 void SetSellReplyTripTaskRequest_Mes_RawValue(SellReplyTripTaskRequest *message, int32_t value);
 
-#pragma mark - GetSaleOrderInfoRequest
+#pragma mark - GetSellTripTaskListResquest
 
-typedef GPB_ENUM(GetSaleOrderInfoRequest_FieldNumber) {
-  GetSaleOrderInfoRequest_FieldNumber_OrderId = 1,
+typedef GPB_ENUM(GetSellTripTaskListResquest_FieldNumber) {
+  GetSellTripTaskListResquest_FieldNumber_TripTaskStatuEnum = 1,
+  GetSellTripTaskListResquest_FieldNumber_Req = 2,
 };
 
 /**
- * /sale/getOrderInfo
+ * 1.4 卖家查询发布的行程  /sell/getTripTaskList
  **/
-@interface GetSaleOrderInfoRequest : GPBMessage
+@interface GetSellTripTaskListResquest : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *orderId;
+/** 可以为空，为空则查询该用户下的最近10条行程 按照发布时间排序 */
+@property(nonatomic, readwrite) enum SellTripTaskStatuEnum tripTaskStatuEnum;
+
+@property(nonatomic, readwrite, strong, null_resettable) PageDataRequest *req;
+/** Test to see if @c req has been set. */
+@property(nonatomic, readwrite) BOOL hasReq;
 
 @end
 
-#pragma mark - GetSaleOrderInfoResponse
+/**
+ * Fetches the raw value of a @c GetSellTripTaskListResquest's @c tripTaskStatuEnum property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t GetSellTripTaskListResquest_TripTaskStatuEnum_RawValue(GetSellTripTaskListResquest *message);
+/**
+ * Sets the raw value of an @c GetSellTripTaskListResquest's @c tripTaskStatuEnum property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetGetSellTripTaskListResquest_TripTaskStatuEnum_RawValue(GetSellTripTaskListResquest *message, int32_t value);
 
-typedef GPB_ENUM(GetSaleOrderInfoResponse_FieldNumber) {
-  GetSaleOrderInfoResponse_FieldNumber_RetCode = 1,
-  GetSaleOrderInfoResponse_FieldNumber_OrderInfo = 2,
-  GetSaleOrderInfoResponse_FieldNumber_Mes = 3,
+#pragma mark - GetSellTripTaskListResponse
+
+typedef GPB_ENUM(GetSellTripTaskListResponse_FieldNumber) {
+  GetSellTripTaskListResponse_FieldNumber_RetCode = 1,
+  GetSellTripTaskListResponse_FieldNumber_SellReleaseTripTaskListArray = 2,
 };
 
-@interface GetSaleOrderInfoResponse : GPBMessage
+@interface GetSellTripTaskListResponse : GPBMessage
 
 @property(nonatomic, readwrite, strong, null_resettable) RetCode *retCode;
 /** Test to see if @c retCode has been set. */
 @property(nonatomic, readwrite) BOOL hasRetCode;
 
-@property(nonatomic, readwrite, strong, null_resettable) OrderInfo *orderInfo;
-/** Test to see if @c orderInfo has been set. */
-@property(nonatomic, readwrite) BOOL hasOrderInfo;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SellReleaseTripTask*> *sellReleaseTripTaskListArray;
+/** The number of items in @c sellReleaseTripTaskListArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger sellReleaseTripTaskListArray_Count;
 
-/** 订单界面详情  按照需求 这里应该是要有各种信息的 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *mes;
+@end
+
+#pragma mark - GetSellOrderListRequest
+
+typedef GPB_ENUM(GetSellOrderListRequest_FieldNumber) {
+  GetSellOrderListRequest_FieldNumber_OrderStutus = 1,
+  GetSellOrderListRequest_FieldNumber_Req = 2,
+};
+
+/**
+ * 1.5卖家查询订单列表  /sell/getOrderList
+ **/
+@interface GetSellOrderListRequest : GPBMessage
+
+@property(nonatomic, readwrite) enum OrderStatus orderStutus;
+
+@property(nonatomic, readwrite, strong, null_resettable) PageDataRequest *req;
+/** Test to see if @c req has been set. */
+@property(nonatomic, readwrite) BOOL hasReq;
+
+@end
+
+/**
+ * Fetches the raw value of a @c GetSellOrderListRequest's @c orderStutus property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t GetSellOrderListRequest_OrderStutus_RawValue(GetSellOrderListRequest *message);
+/**
+ * Sets the raw value of an @c GetSellOrderListRequest's @c orderStutus property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetGetSellOrderListRequest_OrderStutus_RawValue(GetSellOrderListRequest *message, int32_t value);
+
+#pragma mark - GetSellOrderListResponse
+
+typedef GPB_ENUM(GetSellOrderListResponse_FieldNumber) {
+  GetSellOrderListResponse_FieldNumber_RetCode = 1,
+  GetSellOrderListResponse_FieldNumber_OrderListArray = 2,
+};
+
+@interface GetSellOrderListResponse : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) RetCode *retCode;
+/** Test to see if @c retCode has been set. */
+@property(nonatomic, readwrite) BOOL hasRetCode;
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<OrderInfo*> *orderListArray;
+/** The number of items in @c orderListArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger orderListArray_Count;
 
 @end
 
@@ -185,7 +276,7 @@ typedef GPB_ENUM(SearchCityRequest_FieldNumber) {
 };
 
 /**
- * 城市搜索 /sell/searchcity
+ * 1.6 城市搜索 /sell/searchcity
  **/
 @interface SearchCityRequest : GPBMessage
 
@@ -201,7 +292,7 @@ typedef GPB_ENUM(CommonCityRequest_FieldNumber) {
 };
 
 /**
- * 常用城市搜索 请求/sell/common/searchcity
+ * 1.7 常用城市搜索 请求/sell/common/searchcity
  **/
 @interface CommonCityRequest : GPBMessage
 
@@ -213,13 +304,18 @@ typedef GPB_ENUM(CommonCityRequest_FieldNumber) {
 #pragma mark - SearchCityResponse
 
 typedef GPB_ENUM(SearchCityResponse_FieldNumber) {
-  SearchCityResponse_FieldNumber_CityInfoArray = 1,
+  SearchCityResponse_FieldNumber_RetCode = 1,
+  SearchCityResponse_FieldNumber_CityInfoArray = 2,
 };
 
 /**
- * 城市搜索返回结果  /sell/searchcity  /sell/common/searchcity  俩个请求公用返回
+ * 1.6 1.7 response 城市搜索返回结果  /sell/searchcity  /sell/common/searchcity  俩个请求公用返回
  **/
 @interface SearchCityResponse : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) RetCode *retCode;
+/** Test to see if @c retCode has been set. */
+@property(nonatomic, readwrite) BOOL hasRetCode;
 
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<CityInfo*> *cityInfoArray;
 /** The number of items in @c cityInfoArray without causing the array to be created. */
@@ -227,23 +323,26 @@ typedef GPB_ENUM(SearchCityResponse_FieldNumber) {
 
 @end
 
-#pragma mark - MySaleTripTask
+#pragma mark - SellReleaseTripTask
 
-typedef GPB_ENUM(MySaleTripTask_FieldNumber) {
-  MySaleTripTask_FieldNumber_Id_p = 1,
-  MySaleTripTask_FieldNumber_FlightInfo = 2,
-  MySaleTripTask_FieldNumber_ConsignSpace = 3,
-  MySaleTripTask_FieldNumber_HandbagSpace = 4,
-  MySaleTripTask_FieldNumber_DeadLineTime = 5,
-  MySaleTripTask_FieldNumber_Address = 6,
-  MySaleTripTask_FieldNumber_ConsigneePhone = 7,
-  MySaleTripTask_FieldNumber_ConsigneeName = 8,
-  MySaleTripTask_FieldNumber_OrderIdArray = 10,
+typedef GPB_ENUM(SellReleaseTripTask_FieldNumber) {
+  SellReleaseTripTask_FieldNumber_SellTripTaskId = 1,
+  SellReleaseTripTask_FieldNumber_FlightInfo = 2,
+  SellReleaseTripTask_FieldNumber_ConsignSpace = 3,
+  SellReleaseTripTask_FieldNumber_HandbagSpace = 4,
+  SellReleaseTripTask_FieldNumber_DeadLineTime = 5,
+  SellReleaseTripTask_FieldNumber_Address = 6,
+  SellReleaseTripTask_FieldNumber_ConsigneePhone = 7,
+  SellReleaseTripTask_FieldNumber_ConsigneeName = 8,
+  SellReleaseTripTask_FieldNumber_CreateTime = 9,
 };
 
-@interface MySaleTripTask : GPBMessage
+/**
+ * 卖家发布的行程 实体
+ **/
+@interface SellReleaseTripTask : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *sellTripTaskId;
 
 /** 航班信息 */
 @property(nonatomic, readwrite, strong, null_resettable) FlightInfo *flightInfo;
@@ -261,7 +360,7 @@ typedef GPB_ENUM(MySaleTripTask_FieldNumber) {
 @property(nonatomic, readwrite) BOOL hasHandbagSpace;
 
 /** 卖家要求的最迟的货物交付时间，买家必须将货物在此时间交付给卖家，一般是航程开始时多少小时 */
-@property(nonatomic, readwrite) int32_t deadLineTime;
+@property(nonatomic, readwrite) int64_t deadLineTime;
 
 /** 买家所属地址 */
 @property(nonatomic, readwrite, strong, null_resettable) AddressInfo *address;
@@ -276,10 +375,8 @@ typedef GPB_ENUM(MySaleTripTask_FieldNumber) {
 /** 收货人姓名 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *consigneeName;
 
-/** 一个行程可以绑定多个需求id */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSString*> *orderIdArray;
-/** The number of items in @c orderIdArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger orderIdArray_Count;
+/** 发布时间，主要是为了在查询时使用 */
+@property(nonatomic, readwrite) int64_t createTime;
 
 @end
 

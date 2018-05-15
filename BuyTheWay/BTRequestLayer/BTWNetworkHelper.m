@@ -18,7 +18,7 @@
 @implementation BTWNetworkHelper
 
 
-+(void)requestWithUrl:(NSString *)url methodType:(NSString*)type body:(id)body showLoading:(BOOL)show success:(successBlock)success failure:(failureBlock)failure{
++(void)requestWithUrl:(NSString *)url methodType:(NSString*)type isKey:(BOOL)k body:(id)body showLoading:(BOOL)show success:(successBlock)success failure:(failureBlock)failure{
     if (show) {
         [SVProgressHUD show];
     }
@@ -43,29 +43,48 @@
     [request setValue:@"application/x-protobuf" forHTTPHeaderField:@"Content-Type"];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults]; 
     NSString *token = [userDefaults objectForKey:@"token"];
+   
     NSString *signKey = [userDefaults objectForKey:@"signKey"];
+  
     NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
     NSTimeInterval time=[date timeIntervalSince1970]*1000;// *1000 是精确到毫秒，不乘就是精确到秒
     NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
-    int  a = arc4random() % 10000000000;
+ 
+    int  a = arc4random_uniform(10000000+1);//  arc4random() % 10000000000;
     NSString *rand = [NSString stringWithFormat:@"%011d", a];
+ 
     [request setValue:timeString forHTTPHeaderField:@"timestamp"];
     [request setValue:token forHTTPHeaderField:@"token"];
     [request setValue:rand forHTTPHeaderField:@"rand"];
     [request setValue:@"application/x-protobuf" forHTTPHeaderField:@"sign"];
-    NSString *base64Encoded = [[pack data] base64EncodedStringWithOptions:0];
+    
+    NSString *base64Encoded =@"";
+    if (k == true) {
+        base64Encoded = [[body data] base64EncodedStringWithOptions:0];
+    }else{
+        base64Encoded = [[pack data] base64EncodedStringWithOptions:0];
+    }
+    
     NSString *bodyKey = [NSString stringWithFormat:@"%@%@",base64Encoded,signKey].sha512;
-    NSString *bodykey256 =[ NSString stringWithFormat:@"%@%@%@",bodyKey,timeString,rand];
+    NSString *bodykey256 =[ NSString stringWithFormat:@"%@%@%@",bodyKey,timeString,rand].sha256;
+    NSLog(@"token=  %@",token);
+    NSLog(@"signKey=  %@",signKey);
+    NSLog(@"timeString=  %@",timeString);
+    NSLog(@"rand=  %@",rand);
+    NSLog(@"数据 base64Encoded =  %@",base64Encoded);
+    NSLog(@"sha512  bodyKey=  %@",bodyKey);
+    NSLog(@"bodykey256 =  %@",bodykey256);
     [request setValue:bodykey256 forHTTPHeaderField:@"sign"];
 //    sign = sha256(sha512(Base64.encode(body)+signKey)+timestamp+rand)
     // 设置body
-    [request setHTTPBody:[pack data]];
+    if (k == true) {
+           [request setHTTPBody:[body data]];
+    }else{
+          [request setHTTPBody:[pack data]];
+    }
+ 
     AFHTTPResponseSerializer *responseSerializer = [AFHTTPResponseSerializer serializer];
-    responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",
-                                                 @"text/html",
-                                                 @"text/json",
-                                                 @"text/javascript",
-                                                 @"text/plain",
+    responseSerializer.acceptableContentTypes = [NSSet setWithObjects:
                                                  @"application/x-protobuf",
                                                  @"application/octet-stream",
                                                  nil];

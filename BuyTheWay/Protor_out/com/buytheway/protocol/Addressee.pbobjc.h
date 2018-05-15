@@ -29,6 +29,7 @@ CF_EXTERN_C_BEGIN
 
 @class AddresseeInfo;
 @class PageDataRequest;
+@class RetCode;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -84,13 +85,18 @@ typedef GPB_ENUM(GetUserAddresseeListRequest_FieldNumber) {
 #pragma mark - GetUserAddresseeListResponse
 
 typedef GPB_ENUM(GetUserAddresseeListResponse_FieldNumber) {
-  GetUserAddresseeListResponse_FieldNumber_AddresseeArray = 1,
+  GetUserAddresseeListResponse_FieldNumber_RetCode = 1,
+  GetUserAddresseeListResponse_FieldNumber_AddresseeArray = 2,
 };
 
 /**
  * 2.2
  **/
 @interface GetUserAddresseeListResponse : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) RetCode *retCode;
+/** Test to see if @c retCode has been set. */
+@property(nonatomic, readwrite) BOOL hasRetCode;
 
 /** 返回常用联系人地址列表 */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<AddresseeInfo*> *addresseeArray;
@@ -106,7 +112,7 @@ typedef GPB_ENUM(DeleteUserAddresseeRequest_FieldNumber) {
 };
 
 /**
- * 3.1 删除地址
+ * 3.1 删除地址 /addressee/delete
  **/
 @interface DeleteUserAddresseeRequest : GPBMessage
 

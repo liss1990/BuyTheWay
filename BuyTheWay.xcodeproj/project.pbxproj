@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		770B670D209EE1FD006C8191 /* BasicEncodingRules.m in Sources */ = {isa = PBXBuildFile; fileRef = 770B670A209EE1FD006C8191 /* BasicEncodingRules.m */; };
 		770B670E209EE1FD006C8191 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 770B670C209EE1FD006C8191 /* NSData+Base64.m */; };
+		774A824B20A9D0F000290B12 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824A20A9D0F000290B12 /* libsqlite3.tbd */; };
+		774A824D20A9D0FF00290B12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824C20A9D0FF00290B12 /* CoreGraphics.framework */; };
+		774A824F20A9D14100290B12 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824E20A9D14100290B12 /* CoreData.framework */; };
+		775A88C920A6E72100E7B415 /* Orders.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 775A88C020A6E72000E7B415 /* Orders.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		775A88CA20A6E72100E7B415 /* Thirds.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 775A88C720A6E72000E7B415 /* Thirds.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		777F54252099E74E00ADC7E5 /* NSString+SHA.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F54242099E74E00ADC7E5 /* NSString+SHA.m */; };
 		777F542B209A013B00ADC7E5 /* BTHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F542A209A013B00ADC7E5 /* BTHTTPRequest.m */; };
 		777F5435209A13A100ADC7E5 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F542E209A13A100ADC7E5 /* RSA.m */; };
@@ -128,6 +133,13 @@
 		770B670A209EE1FD006C8191 /* BasicEncodingRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicEncodingRules.m; sourceTree = "<group>"; };
 		770B670B209EE1FD006C8191 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		770B670C209EE1FD006C8191 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		774A824A20A9D0F000290B12 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		774A824C20A9D0FF00290B12 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		774A824E20A9D14100290B12 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		775A88C020A6E72000E7B415 /* Orders.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Orders.pbobjc.m; sourceTree = "<group>"; };
+		775A88C620A6E72000E7B415 /* Thirds.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thirds.pbobjc.h; sourceTree = "<group>"; };
+		775A88C720A6E72000E7B415 /* Thirds.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thirds.pbobjc.m; sourceTree = "<group>"; };
+		775A88C820A6E72100E7B415 /* Orders.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orders.pbobjc.h; sourceTree = "<group>"; };
 		777F54232099E74E00ADC7E5 /* NSString+SHA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA.h"; sourceTree = "<group>"; };
 		777F54242099E74E00ADC7E5 /* NSString+SHA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA.m"; sourceTree = "<group>"; };
 		777F5429209A013B00ADC7E5 /* BTHTTPRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTHTTPRequest.h; sourceTree = "<group>"; };
@@ -263,6 +275,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774A824F20A9D14100290B12 /* CoreData.framework in Frameworks */,
+				774A824D20A9D0FF00290B12 /* CoreGraphics.framework in Frameworks */,
+				774A824B20A9D0F000290B12 /* libsqlite3.tbd in Frameworks */,
 				77F5C6D22095CC4700709FDC /* libProtocolBuffers.a in Frameworks */,
 				A58CC377C250A45F65957F81 /* Pods_BuyTheWay.framework in Frameworks */,
 			);
@@ -540,6 +555,9 @@
 		77F5C6D12095CC4700709FDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				774A824E20A9D14100290B12 /* CoreData.framework */,
+				774A824C20A9D0FF00290B12 /* CoreGraphics.framework */,
+				774A824A20A9D0F000290B12 /* libsqlite3.tbd */,
 				BF94C76E35EC5FD45E19FA67 /* Pods_BuyTheWay.framework */,
 			);
 			name = Frameworks;
@@ -572,6 +590,10 @@
 		77F5C6D62095CE4600709FDC /* protocol */ = {
 			isa = PBXGroup;
 			children = (
+				775A88C820A6E72100E7B415 /* Orders.pbobjc.h */,
+				775A88C020A6E72000E7B415 /* Orders.pbobjc.m */,
+				775A88C620A6E72000E7B415 /* Thirds.pbobjc.h */,
+				775A88C720A6E72000E7B415 /* Thirds.pbobjc.m */,
 				77F5C6E22095CE4600709FDC /* Users.pbobjc.h */,
 				77F5C6D82095CE4600709FDC /* Users.pbobjc.m */,
 				77F5C6D92095CE4600709FDC /* Common.pbobjc.h */,
@@ -828,9 +850,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BuyTheWay/Pods-BuyTheWay-resources.sh",
+				"${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Twitter/TwitterKitResources.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Twitter/TwitterShareExtensionUIResources.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -922,6 +951,7 @@
 				77F5C6EB2095CE4600709FDC /* Cardauth.pbobjc.m in Sources */,
 				77F4A2EA20A07DF300B0D406 /* RSAPubKey.m in Sources */,
 				77BC55622098BC4100836493 /* YYDiskCache.m in Sources */,
+				775A88CA20A6E72100E7B415 /* Thirds.pbobjc.m in Sources */,
 				77FB60BC20A1DD54002FB1B8 /* BTWMeViewController.m in Sources */,
 				77BC555B2098BC4100836493 /* AFHTTPSessionManager.m in Sources */,
 				77F5C6ED2095CE4600709FDC /* Village.pbobjc.m in Sources */,
@@ -939,6 +969,7 @@
 				77F5C6EC2095CE4600709FDC /* Users.pbobjc.m in Sources */,
 				770B670E209EE1FD006C8191 /* NSData+Base64.m in Sources */,
 				77BC55592098BC4100836493 /* AFImageDownloader.m in Sources */,
+				775A88C920A6E72100E7B415 /* Orders.pbobjc.m in Sources */,
 				77BC555A2098BC4100836493 /* AFURLResponseSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1109,17 +1140,59 @@
 			baseConfigurationReference = 0982E8781D262CE37FE80C09 /* Pods-BuyTheWay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VY4LPJ567W;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BuyTheWay/BuyTheWay-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT)/Lib";
 				INFOPLIST_FILE = BuyTheWay/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"SocialFacebook\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"ReactiveObjC\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"SecurityEnvSDK\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UMCommon\"",
+					"-framework",
+					"\"UMShare\"",
+					"-framework",
+					"\"UShareUI\"",
+					"-framework",
+					"\"UTDID\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Buytheway.BuyTheWay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "/Users/lisisi/Documents/所有项目/BuyTheWay/BuyTheWay/BuyTheWay/Protor_out";
 			};
 			name = Debug;
@@ -1129,17 +1202,59 @@
 			baseConfigurationReference = 40B03A465DF405C8F48C4F9D /* Pods-BuyTheWay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VY4LPJ567W;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BuyTheWay/BuyTheWay-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT)/Lib";
 				INFOPLIST_FILE = BuyTheWay/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"SocialFacebook\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"ReactiveObjC\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"SecurityEnvSDK\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UMCommon\"",
+					"-framework",
+					"\"UMShare\"",
+					"-framework",
+					"\"UShareUI\"",
+					"-framework",
+					"\"UTDID\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Buytheway.BuyTheWay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "/Users/lisisi/Documents/所有项目/BuyTheWay/BuyTheWay/BuyTheWay/Protor_out";
 			};
 			name = Release;

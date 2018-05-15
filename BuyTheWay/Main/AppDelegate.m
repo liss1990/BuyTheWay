@@ -8,19 +8,36 @@
 
 #import "AppDelegate.h"
 #import "BTWRootViewController.h"
+#import <UMCommon/UMCommon.h>
+#import <UMShare/UMShare.h>
 @interface AppDelegate ()
 
 @end
-
+//
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+//    [[FBSDKApplicationDelegate sharedInstance] application:application
+//                             didFinishLaunchingWithOptions:launchOptions];
+     [UMConfigure initWithAppkey:@"5af994768f4a9d68520000e6" channel:nil];
     self.window.rootViewController = [[BTWRootViewController alloc]init];
     [self.window makeKeyAndVisible];
+    
+    
+    [self configUSharePlatforms];
     return YES;
+}
+
+- (void)configUSharePlatforms
+{
+    /* 设置微信的appKey和appSecret */
+    /* 设置Twitter的appKey和appSecret */
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Twitter appKey:@"rsSOuVa6QFdNSiFgxPxDx9ZFv"  appSecret:@"OWEjKgY7rKkrIXuhMZdlYFlm4NZt1hs1LIrOlnvBDnBNTHXTYJ" redirectURL:@"http://www.buytheway.top"];
+    /* 设置Facebook的appKey和UrlString */
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Facebook appKey:@"c2788336479cbf7891449cfadc469bca"  appSecret:nil redirectURL:@"http://www.buytheway.top"];
+    
 }
 
 

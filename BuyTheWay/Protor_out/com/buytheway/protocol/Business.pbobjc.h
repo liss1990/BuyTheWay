@@ -103,6 +103,39 @@ GPBEnumDescriptor *OrderStatus_EnumDescriptor(void);
  **/
 BOOL OrderStatus_IsValidValue(int32_t value);
 
+#pragma mark - Enum SellTripTaskStatuEnum
+
+typedef GPB_ENUM(SellTripTaskStatuEnum) {
+  /**
+   * Value used if any message's field encounters a value that is not defined
+   * by this enum. The message will also have C functions to get/set the rawValue
+   * of the field.
+   **/
+  SellTripTaskStatuEnum_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  /** "发布行程"), */
+  SellTripTaskStatuEnum_Create = 0,
+
+  /** "适配中"),//卖家接受某个买家的任务预约后 就开始是适配中，如果刚刚只能满足一个买家 即可开始进行中 ，则产生订单 */
+  SellTripTaskStatuEnum_FitIn = 1,
+
+  /** "部分成单"), */
+  SellTripTaskStatuEnum_Order = 2,
+
+  /** "全部成单，任务结束"),// 如果一个卖家的行程能够完成多个买家的单 则生成多笔单，此任务接受不再接受匹配 */
+  SellTripTaskStatuEnum_AllOrder = 3,
+
+  /** "异常中止" */
+  SellTripTaskStatuEnum_Abort = 1000,
+};
+
+GPBEnumDescriptor *SellTripTaskStatuEnum_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL SellTripTaskStatuEnum_IsValidValue(int32_t value);
+
 #pragma mark - BusinessRoot
 
 /**
@@ -142,9 +175,6 @@ typedef GPB_ENUM(PhoneNumber_FieldNumber) {
 #pragma mark - CityInfo
 
 typedef GPB_ENUM(CityInfo_FieldNumber) {
-  CityInfo_FieldNumber_Country = 1,
-  CityInfo_FieldNumber_Provide = 2,
-  CityInfo_FieldNumber_City = 3,
   CityInfo_FieldNumber_CountryCode = 4,
   CityInfo_FieldNumber_ProvideCode = 5,
   CityInfo_FieldNumber_CityCode = 6,
@@ -155,16 +185,11 @@ typedef GPB_ENUM(CityInfo_FieldNumber) {
  **/
 @interface CityInfo : GPBMessage
 
-/** 国家 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *country;
-
-/** 省 美国州 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *provide;
-
-/** 市   市区 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *city;
-
-/** 统一编码 */
+/**
+ *    string country = 1; //国家
+ *    string provide = 2; //省 美国州
+ *    string cityName = 3; //市   市区  ？
+ **/
 @property(nonatomic, readwrite, copy, null_resettable) NSString *countryCode;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *provideCode;
@@ -204,9 +229,6 @@ typedef GPB_ENUM(SpaceInfo_FieldNumber) {
 #pragma mark - AddressInfo
 
 typedef GPB_ENUM(AddressInfo_FieldNumber) {
-  AddressInfo_FieldNumber_Country = 1,
-  AddressInfo_FieldNumber_Provide = 2,
-  AddressInfo_FieldNumber_City = 3,
   AddressInfo_FieldNumber_CountryCode = 4,
   AddressInfo_FieldNumber_ProvideCode = 5,
   AddressInfo_FieldNumber_CityCode = 6,
@@ -218,20 +240,17 @@ typedef GPB_ENUM(AddressInfo_FieldNumber) {
  **/
 @interface AddressInfo : GPBMessage
 
-/** 国家 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *country;
-
-/** 省 美国州 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *provide;
-
-/** 市   市区 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *city;
-
-/** 统一编码 */
+/**
+ *    string country = 1; //国家 ，这些好像不需要，以编码为准
+ *    string provide = 2; //省 美国州 这些好像不需要，以编码为准
+ *    string city = 3; //市   市区 这些好像不需要，以编码为准
+ **/
 @property(nonatomic, readwrite, copy, null_resettable) NSString *countryCode;
 
+/** 统一编码 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *provideCode;
 
+/** 统一编码 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *cityCode;
 
 /** 详细地址 */
@@ -278,7 +297,7 @@ typedef GPB_ENUM(FlightInfo_FieldNumber) {
 #pragma mark - AddresseeInfo
 
 typedef GPB_ENUM(AddresseeInfo_FieldNumber) {
-  AddresseeInfo_FieldNumber_Id_p = 1,
+  AddresseeInfo_FieldNumber_AddresseeId = 1,
   AddresseeInfo_FieldNumber_Address = 2,
   AddresseeInfo_FieldNumber_ConsigneePhone = 3,
   AddresseeInfo_FieldNumber_ConsigneeName = 4,
@@ -290,7 +309,7 @@ typedef GPB_ENUM(AddresseeInfo_FieldNumber) {
  **/
 @interface AddresseeInfo : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *addresseeId;
 
 /** 收货人所属地址 */
 @property(nonatomic, readwrite, strong, null_resettable) AddressInfo *address;
@@ -309,59 +328,6 @@ typedef GPB_ENUM(AddresseeInfo_FieldNumber) {
 @property(nonatomic, readwrite) BOOL default_p;
 
 @end
-
-#pragma mark - OrderInfo
-
-typedef GPB_ENUM(OrderInfo_FieldNumber) {
-  OrderInfo_FieldNumber_OrderId = 1,
-  OrderInfo_FieldNumber_Status = 2,
-  OrderInfo_FieldNumber_BuyIdArray = 3,
-  OrderInfo_FieldNumber_SaleId = 4,
-  OrderInfo_FieldNumber_Money = 5,
-  OrderInfo_FieldNumber_MoneyUnit = 6,
-  OrderInfo_FieldNumber_DiscardReason = 10,
-};
-
-/**
- * 买家预约行程就产生一个订单id，
- **/
-@interface OrderInfo : GPBMessage
-
-@property(nonatomic, readwrite, copy, null_resettable) NSString *orderId;
-
-/** 订单状态 */
-@property(nonatomic, readwrite) OrderStatus status;
-
-/** 买家需求id，买家预约就会产生订单，绑定买家需求id */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSString*> *buyIdArray;
-/** The number of items in @c buyIdArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger buyIdArray_Count;
-
-/** 卖家行程id，卖家同意预约是针对此订单号操作， 不同意刚废弃 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *saleId;
-
-/** 订单的钱 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *money;
-
-/** 订单的货币单位 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *moneyUnit;
-
-/** 订单被废弃的原因 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *discardReason;
-
-@end
-
-/**
- * Fetches the raw value of a @c OrderInfo's @c status property, even
- * if the value was not defined by the enum at the time the code was generated.
- **/
-int32_t OrderInfo_Status_RawValue(OrderInfo *message);
-/**
- * Sets the raw value of an @c OrderInfo's @c status property, allowing
- * it to be set to a value that was not defined by the enum at the time the code
- * was generated.
- **/
-void SetOrderInfo_Status_RawValue(OrderInfo *message, int32_t value);
 
 NS_ASSUME_NONNULL_END
 

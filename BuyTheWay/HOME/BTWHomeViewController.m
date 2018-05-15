@@ -13,7 +13,8 @@
 #import "Business.pbobjc.h"
 #import "Addressee.pbobjc.h"
 #import "NSString+SHA.h"
-
+#import "Buy.pbobjc.h"
+#import "Sell.pbobjc.h"
 @interface BTWHomeViewController ()
 @property(nonatomic,strong)UIButton *smgBtn;
 @property(nonatomic,strong)UIButton *registerBtn;
@@ -22,6 +23,11 @@
 @property(nonatomic,strong)UIButton * ResetPwdBtn;
 @property(nonatomic,strong)UIButton * saveAddressBtn;
 
+@property(nonatomic,strong)UIButton * getAddressBtn;
+@property(nonatomic,strong)UIButton * deleteAddressBtn;
+
+@property(nonatomic,strong)UIButton * flightMessage; //获取航班信息;
+@property(nonatomic,strong)UIButton * buytriptask; // 想购买的行程服务;
 @end
 
 @implementation BTWHomeViewController
@@ -63,6 +69,37 @@
     self.saveAddressBtn.frame = CGRectMake(10, 80+ 60+60+60+60, 120, 50);
     [self.saveAddressBtn addTarget:self action:@selector(saveAddress) forControlEvents:1<<6];
     [self.view addSubview:self.saveAddressBtn];
+    
+    self.getAddressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.getAddressBtn setTitle:@"地址联系人列表获取" forState:0];
+    self.getAddressBtn.backgroundColor = [UIColor redColor];
+    self.getAddressBtn.frame = CGRectMake(10+10+120, 80+ 60+60+60+60, 120, 50);
+    [self.getAddressBtn addTarget:self action:@selector(getAddress) forControlEvents:1<<6];
+    [self.view addSubview:self.getAddressBtn];
+    
+    self.deleteAddressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.deleteAddressBtn setTitle:@"删除地址" forState:0];
+    self.deleteAddressBtn.backgroundColor = [UIColor redColor];
+    self.deleteAddressBtn.frame = CGRectMake(10+10+120, 80+ 60+60+60+60+60, 120, 50);
+    [self.deleteAddressBtn addTarget:self action:@selector(deleteAddress) forControlEvents:1<<6];
+    [self.view addSubview:self.deleteAddressBtn];
+    
+    
+    
+    
+    self.flightMessage = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.flightMessage setTitle:@"获取航班信息" forState:0];
+    self.flightMessage.backgroundColor = [UIColor redColor];
+    self.flightMessage.frame = CGRectMake(10, 80+ 60+60+60+60+60, 120, 50);
+    [self.flightMessage addTarget:self action:@selector(flight) forControlEvents:1<<6];
+    [self.view addSubview:self.flightMessage];
+    
+    self.buytriptask = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.buytriptask setTitle:@"购买想买的服务" forState:0];
+    self.buytriptask.backgroundColor = [UIColor redColor];
+    self.buytriptask.frame = CGRectMake(10, 80+ 60+60+60+60+60+60, 120, 50);
+    [self.buytriptask addTarget:self action:@selector(sellTripTask) forControlEvents:1<<6];
+    [self.view addSubview:self.buytriptask];
     
 }
 
@@ -148,28 +185,76 @@
 -(void)saveAddress{
  
     UserCommonAddresseeSaveRequest *address = [[UserCommonAddresseeSaveRequest alloc]init];
+    
     AddresseeInfo *eeInfo = [[AddresseeInfo alloc]init];
-    eeInfo.consigneeName = @"lisisi";
-    eeInfo.id_p = @"8888";
-    eeInfo.hasAddress = NO;
     PhoneNumber *phone = [[PhoneNumber alloc]init];
     phone.phonePre = @"+86";
     phone.phone = @"18023008100";
-    eeInfo.consigneeName = @"slslslsl";
-    eeInfo.consigneePhone = phone;
-    eeInfo.default_p = YES;
     AddressInfo *info = [[AddressInfo alloc]init];
-    info.country = @"中国";
-    info.provide = @"广州";
-    info.city = @"深圳";
     info.countryCode = @"35345";
     info.provideCode = @"534534";
     info.cityCode = @"4545534";
     info.address = @"哈哈哈哈哈哈哈哈哈";
-    eeInfo.address = info;
-    address.addressee = eeInfo;
     
+//    eeInfo.addresseeId = @"12312";
+    eeInfo.address = info;
+//    eeInfo.hasAddress = NO;
+    eeInfo.consigneePhone =  phone;
+//    eeInfo.hasConsigneePhone = NO;
+    eeInfo.consigneeName = @"lisisi";
+//    eeInfo.default_p = YES;
+    
+    address.addressee = eeInfo;
+//    address.hasAddressee = NO;
     [BTHTTPRequest saveAddressWithParameters:address success:^(id response) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)getAddress{
+    
+    GetUserAddresseeListRequest *list = [[GetUserAddresseeListRequest alloc]init];
+    PageDataRequest *page = [[PageDataRequest alloc]init];
+    page.currentPage=1;
+    page.pageSize = 10;
+    list.req = page;
+    [BTHTTPRequest getAddressWithParameters:list success:^(id response) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
+-(void)deleteAddress{
+    DeleteUserAddresseeRequest *detl = [[DeleteUserAddresseeRequest alloc]init];
+    detl.addresseeId = @"0e606906-bfdd-41d7-80f6-5e0af5d1a675";
+    [BTHTTPRequest deleteAddressWithParameters:detl success:^(id response) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)flight{
+    SearchFlightInfoRequest *trip = [[SearchFlightInfoRequest alloc]init];  
+    trip.keyword = @"666666";
+    [BTHTTPRequest searchFlightWithParameters:trip success:^(id response) {
+
+    } failure:^(NSError *error) {
+
+    }];
+    
+}
+
+
+-(void)sellTripTask{
+    SellTripTaskRequest *sell = [[SellTripTaskRequest alloc]init];
+    SellReleaseTripTask *rel = [[SellReleaseTripTask alloc]init];
+    rel.consigneeName = @"ddddd";
+    sell.taskInfo = rel;
+    [BTHTTPRequest sellTripTaskWithParameters:sell success:^(id response) {
         
     } failure:^(NSError *error) {
         
@@ -180,6 +265,18 @@
 
 
 
+-(void)buytripTask{
+    BuyTripTaskRequest *trip = [[BuyTripTaskRequest alloc]init];
+    BuyTripTaskInfo *info = [[BuyTripTaskInfo alloc]init];
+    info.buyTripTaskId = @"666666";
+    trip.taskInfo = info;
+    [BTHTTPRequest buyTripTaskWithParameters:trip success:^(id response) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

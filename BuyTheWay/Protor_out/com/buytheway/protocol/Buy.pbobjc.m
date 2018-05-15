@@ -16,6 +16,7 @@
  #import "com/buytheway/protocol/Buy.pbobjc.h"
  #import "com/buytheway/protocol/Common.pbobjc.h"
  #import "com/buytheway/protocol/Business.pbobjc.h"
+ #import "com/buytheway/protocol/Orders.pbobjc.h"
  #import "com/buytheway/protocol/Amount.pbobjc.h"
 // @@protoc_insertion_point(imports)
 
@@ -53,7 +54,7 @@ static GPBFileDescriptor *BuyRoot_FileDescriptor(void) {
 
 typedef struct BuyTripTaskRequest__storage_ {
   uint32_t _has_storage_[1];
-  BuyTaskInfo *taskInfo;
+  BuyTripTaskInfo *taskInfo;
 } BuyTripTaskRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -64,7 +65,7 @@ typedef struct BuyTripTaskRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "taskInfo",
-        .dataTypeSpecific.className = GPBStringifySymbol(BuyTaskInfo),
+        .dataTypeSpecific.className = GPBStringifySymbol(BuyTripTaskInfo),
         .number = BuyTripTaskRequest_FieldNumber_TaskInfo,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(BuyTripTaskRequest__storage_, taskInfo),
@@ -98,12 +99,12 @@ typedef struct BuyTripTaskRequest__storage_ {
 @implementation BuyTripTaskResponse
 
 @dynamic hasRetCode, retCode;
-@dynamic buyId;
+@dynamic buyTripTaskId;
 
 typedef struct BuyTripTaskResponse__storage_ {
   uint32_t _has_storage_[1];
   RetCode *retCode;
-  NSString *buyId;
+  NSString *buyTripTaskId;
 } BuyTripTaskResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -122,11 +123,11 @@ typedef struct BuyTripTaskResponse__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "buyId",
+        .name = "buyTripTaskId",
         .dataTypeSpecific.className = NULL,
-        .number = BuyTripTaskResponse_FieldNumber_BuyId,
+        .number = BuyTripTaskResponse_FieldNumber_BuyTripTaskId,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(BuyTripTaskResponse__storage_, buyId),
+        .offset = (uint32_t)offsetof(BuyTripTaskResponse__storage_, buyTripTaskId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
@@ -141,7 +142,7 @@ typedef struct BuyTripTaskResponse__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\002\001\007\000\002\005\000";
+        "\002\001\007\000\002\r\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -152,16 +153,16 @@ typedef struct BuyTripTaskResponse__storage_ {
 
 @end
 
-#pragma mark - GetMatchSaleTaskRequest
+#pragma mark - MarrySellTripTaskListRequest
 
-@implementation GetMatchSaleTaskRequest
+@implementation MarrySellTripTaskListRequest
 
-@dynamic buyId;
+@dynamic buyTripTaskId;
 
-typedef struct GetMatchSaleTaskRequest__storage_ {
+typedef struct MarrySellTripTaskListRequest__storage_ {
   uint32_t _has_storage_[1];
-  NSString *buyId;
-} GetMatchSaleTaskRequest__storage_;
+  NSString *buyTripTaskId;
+} MarrySellTripTaskListRequest__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -170,26 +171,26 @@ typedef struct GetMatchSaleTaskRequest__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "buyId",
+        .name = "buyTripTaskId",
         .dataTypeSpecific.className = NULL,
-        .number = GetMatchSaleTaskRequest_FieldNumber_BuyId,
+        .number = MarrySellTripTaskListRequest_FieldNumber_BuyTripTaskId,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(GetMatchSaleTaskRequest__storage_, buyId),
+        .offset = (uint32_t)offsetof(MarrySellTripTaskListRequest__storage_, buyTripTaskId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[GetMatchSaleTaskRequest class]
+        [GPBDescriptor allocDescriptorForClass:[MarrySellTripTaskListRequest class]
                                      rootClass:[BuyRoot class]
                                           file:BuyRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(GetMatchSaleTaskRequest__storage_)
+                                   storageSize:sizeof(MarrySellTripTaskListRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\001\002\005\000";
+        "\001\002\r\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -200,18 +201,20 @@ typedef struct GetMatchSaleTaskRequest__storage_ {
 
 @end
 
-#pragma mark - GetMatchSaleTaskResponse
+#pragma mark - MarrySellTripTaskListResponse
 
-@implementation GetMatchSaleTaskResponse
+@implementation MarrySellTripTaskListResponse
 
 @dynamic hasRetCode, retCode;
 @dynamic marrySellTripTaskArray, marrySellTripTaskArray_Count;
+@dynamic buyTripTaskid;
 
-typedef struct GetMatchSaleTaskResponse__storage_ {
+typedef struct MarrySellTripTaskListResponse__storage_ {
   uint32_t _has_storage_[1];
   RetCode *retCode;
   NSMutableArray *marrySellTripTaskArray;
-} GetMatchSaleTaskResponse__storage_;
+  NSString *buyTripTaskid;
+} MarrySellTripTaskListResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -222,33 +225,42 @@ typedef struct GetMatchSaleTaskResponse__storage_ {
       {
         .name = "retCode",
         .dataTypeSpecific.className = GPBStringifySymbol(RetCode),
-        .number = GetMatchSaleTaskResponse_FieldNumber_RetCode,
+        .number = MarrySellTripTaskListResponse_FieldNumber_RetCode,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(GetMatchSaleTaskResponse__storage_, retCode),
+        .offset = (uint32_t)offsetof(MarrySellTripTaskListResponse__storage_, retCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
       },
       {
         .name = "marrySellTripTaskArray",
         .dataTypeSpecific.className = GPBStringifySymbol(SellTripTask),
-        .number = GetMatchSaleTaskResponse_FieldNumber_MarrySellTripTaskArray,
+        .number = MarrySellTripTaskListResponse_FieldNumber_MarrySellTripTaskArray,
         .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(GetMatchSaleTaskResponse__storage_, marrySellTripTaskArray),
+        .offset = (uint32_t)offsetof(MarrySellTripTaskListResponse__storage_, marrySellTripTaskArray),
         .flags = (GPBFieldFlags)(GPBFieldRepeated | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
       },
+      {
+        .name = "buyTripTaskid",
+        .dataTypeSpecific.className = NULL,
+        .number = MarrySellTripTaskListResponse_FieldNumber_BuyTripTaskid,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(MarrySellTripTaskListResponse__storage_, buyTripTaskid),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeString,
+      },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[GetMatchSaleTaskResponse class]
+        [GPBDescriptor allocDescriptorForClass:[MarrySellTripTaskListResponse class]
                                      rootClass:[BuyRoot class]
                                           file:BuyRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(GetMatchSaleTaskResponse__storage_)
+                                   storageSize:sizeof(MarrySellTripTaskListResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\002\001\007\000\002\000marrySellTripTask\000";
+        "\003\001\007\000\002\000marrySellTripTask\000\003\r\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -259,16 +271,16 @@ typedef struct GetMatchSaleTaskResponse__storage_ {
 
 @end
 
-#pragma mark - GetSellTripTaskListRequest
+#pragma mark - GetBuyTripTaskListRequest
 
-@implementation GetSellTripTaskListRequest
+@implementation GetBuyTripTaskListRequest
 
 @dynamic hasReq, req;
 
-typedef struct GetSellTripTaskListRequest__storage_ {
+typedef struct GetBuyTripTaskListRequest__storage_ {
   uint32_t _has_storage_[1];
   PageDataRequest *req;
-} GetSellTripTaskListRequest__storage_;
+} GetBuyTripTaskListRequest__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -279,20 +291,20 @@ typedef struct GetSellTripTaskListRequest__storage_ {
       {
         .name = "req",
         .dataTypeSpecific.className = GPBStringifySymbol(PageDataRequest),
-        .number = GetSellTripTaskListRequest_FieldNumber_Req,
+        .number = GetBuyTripTaskListRequest_FieldNumber_Req,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(GetSellTripTaskListRequest__storage_, req),
+        .offset = (uint32_t)offsetof(GetBuyTripTaskListRequest__storage_, req),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[GetSellTripTaskListRequest class]
+        [GPBDescriptor allocDescriptorForClass:[GetBuyTripTaskListRequest class]
                                      rootClass:[BuyRoot class]
                                           file:BuyRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(GetSellTripTaskListRequest__storage_)
+                                   storageSize:sizeof(GetBuyTripTaskListRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -302,18 +314,18 @@ typedef struct GetSellTripTaskListRequest__storage_ {
 
 @end
 
-#pragma mark - GetSellTripTaskListRequestRespons
+#pragma mark - GetBuyTripTaskListResponse
 
-@implementation GetSellTripTaskListRequestRespons
+@implementation GetBuyTripTaskListResponse
 
 @dynamic hasRetCode, retCode;
 @dynamic taskListArray, taskListArray_Count;
 
-typedef struct GetSellTripTaskListRequestRespons__storage_ {
+typedef struct GetBuyTripTaskListResponse__storage_ {
   uint32_t _has_storage_[1];
   RetCode *retCode;
   NSMutableArray *taskListArray;
-} GetSellTripTaskListRequestRespons__storage_;
+} GetBuyTripTaskListResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -324,29 +336,29 @@ typedef struct GetSellTripTaskListRequestRespons__storage_ {
       {
         .name = "retCode",
         .dataTypeSpecific.className = GPBStringifySymbol(RetCode),
-        .number = GetSellTripTaskListRequestRespons_FieldNumber_RetCode,
+        .number = GetBuyTripTaskListResponse_FieldNumber_RetCode,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(GetSellTripTaskListRequestRespons__storage_, retCode),
+        .offset = (uint32_t)offsetof(GetBuyTripTaskListResponse__storage_, retCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
       },
       {
         .name = "taskListArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(BuyTaskInfo),
-        .number = GetSellTripTaskListRequestRespons_FieldNumber_TaskListArray,
+        .dataTypeSpecific.className = GPBStringifySymbol(BuyTripTaskInfo),
+        .number = GetBuyTripTaskListResponse_FieldNumber_TaskListArray,
         .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(GetSellTripTaskListRequestRespons__storage_, taskListArray),
+        .offset = (uint32_t)offsetof(GetBuyTripTaskListResponse__storage_, taskListArray),
         .flags = (GPBFieldFlags)(GPBFieldRepeated | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[GetSellTripTaskListRequestRespons class]
+        [GPBDescriptor allocDescriptorForClass:[GetBuyTripTaskListResponse class]
                                      rootClass:[BuyRoot class]
                                           file:BuyRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(GetSellTripTaskListRequestRespons__storage_)
+                                   storageSize:sizeof(GetBuyTripTaskListResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
@@ -366,12 +378,12 @@ typedef struct GetSellTripTaskListRequestRespons__storage_ {
 @implementation BuyMarrySellTripTaskRequest
 
 @dynamic sellTripTaskid;
-@dynamic buyUserBizId;
+@dynamic buyTripTaskid;
 
 typedef struct BuyMarrySellTripTaskRequest__storage_ {
   uint32_t _has_storage_[1];
   NSString *sellTripTaskid;
-  NSString *buyUserBizId;
+  NSString *buyTripTaskid;
 } BuyMarrySellTripTaskRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -390,11 +402,11 @@ typedef struct BuyMarrySellTripTaskRequest__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "buyUserBizId",
+        .name = "buyTripTaskid",
         .dataTypeSpecific.className = NULL,
-        .number = BuyMarrySellTripTaskRequest_FieldNumber_BuyUserBizId,
+        .number = BuyMarrySellTripTaskRequest_FieldNumber_BuyTripTaskid,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(BuyMarrySellTripTaskRequest__storage_, buyUserBizId),
+        .offset = (uint32_t)offsetof(BuyMarrySellTripTaskRequest__storage_, buyTripTaskid),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
@@ -409,7 +421,7 @@ typedef struct BuyMarrySellTripTaskRequest__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\002\001\016\000\002\014\000";
+        "\002\001\016\000\002\r\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -425,12 +437,12 @@ typedef struct BuyMarrySellTripTaskRequest__storage_ {
 @implementation BuyMarrySellTripTaskRespons
 
 @dynamic hasRetCode, retCode;
-@dynamic marrySellTripTaskId;
+@dynamic orderId;
 
 typedef struct BuyMarrySellTripTaskRespons__storage_ {
   uint32_t _has_storage_[1];
   RetCode *retCode;
-  NSString *marrySellTripTaskId;
+  NSString *orderId;
 } BuyMarrySellTripTaskRespons__storage_;
 
 // This method is threadsafe because it is initially called
@@ -449,11 +461,11 @@ typedef struct BuyMarrySellTripTaskRespons__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "marrySellTripTaskId",
+        .name = "orderId",
         .dataTypeSpecific.className = NULL,
-        .number = BuyMarrySellTripTaskRespons_FieldNumber_MarrySellTripTaskId,
+        .number = BuyMarrySellTripTaskRespons_FieldNumber_OrderId,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(BuyMarrySellTripTaskRespons__storage_, marrySellTripTaskId),
+        .offset = (uint32_t)offsetof(BuyMarrySellTripTaskRespons__storage_, orderId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
@@ -468,7 +480,7 @@ typedef struct BuyMarrySellTripTaskRespons__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\002\001\007\000\002\023\000";
+        "\002\001\007\000\002\007\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -479,16 +491,18 @@ typedef struct BuyMarrySellTripTaskRespons__storage_ {
 
 @end
 
-#pragma mark - GetBuyOrderInfoRequest
+#pragma mark - GetBuyOrderListRequest
 
-@implementation GetBuyOrderInfoRequest
+@implementation GetBuyOrderListRequest
 
-@dynamic orderId;
+@dynamic orderStutus;
+@dynamic hasReq, req;
 
-typedef struct GetBuyOrderInfoRequest__storage_ {
+typedef struct GetBuyOrderListRequest__storage_ {
   uint32_t _has_storage_[1];
-  NSString *orderId;
-} GetBuyOrderInfoRequest__storage_;
+  OrderStatus orderStutus;
+  PageDataRequest *req;
+} GetBuyOrderListRequest__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -497,26 +511,35 @@ typedef struct GetBuyOrderInfoRequest__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "orderId",
-        .dataTypeSpecific.className = NULL,
-        .number = GetBuyOrderInfoRequest_FieldNumber_OrderId,
+        .name = "orderStutus",
+        .dataTypeSpecific.enumDescFunc = OrderStatus_EnumDescriptor,
+        .number = GetBuyOrderListRequest_FieldNumber_OrderStutus,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(GetBuyOrderInfoRequest__storage_, orderId),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeString,
+        .offset = (uint32_t)offsetof(GetBuyOrderListRequest__storage_, orderStutus),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldHasEnumDescriptor),
+        .dataType = GPBDataTypeEnum,
+      },
+      {
+        .name = "req",
+        .dataTypeSpecific.className = GPBStringifySymbol(PageDataRequest),
+        .number = GetBuyOrderListRequest_FieldNumber_Req,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(GetBuyOrderListRequest__storage_, req),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[GetBuyOrderInfoRequest class]
+        [GPBDescriptor allocDescriptorForClass:[GetBuyOrderListRequest class]
                                      rootClass:[BuyRoot class]
                                           file:BuyRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(GetBuyOrderInfoRequest__storage_)
+                                   storageSize:sizeof(GetBuyOrderListRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\001\001\007\000";
+        "\001\001\013\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -527,20 +550,30 @@ typedef struct GetBuyOrderInfoRequest__storage_ {
 
 @end
 
-#pragma mark - GetBuyOrderInfoResponse
+int32_t GetBuyOrderListRequest_OrderStutus_RawValue(GetBuyOrderListRequest *message) {
+  GPBDescriptor *descriptor = [GetBuyOrderListRequest descriptor];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:GetBuyOrderListRequest_FieldNumber_OrderStutus];
+  return GPBGetMessageInt32Field(message, field);
+}
 
-@implementation GetBuyOrderInfoResponse
+void SetGetBuyOrderListRequest_OrderStutus_RawValue(GetBuyOrderListRequest *message, int32_t value) {
+  GPBDescriptor *descriptor = [GetBuyOrderListRequest descriptor];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:GetBuyOrderListRequest_FieldNumber_OrderStutus];
+  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
+}
+
+#pragma mark - GetBuyOrderListResponse
+
+@implementation GetBuyOrderListResponse
 
 @dynamic hasRetCode, retCode;
-@dynamic hasOrderInfo, orderInfo;
-@dynamic mes;
+@dynamic orderListArray, orderListArray_Count;
 
-typedef struct GetBuyOrderInfoResponse__storage_ {
+typedef struct GetBuyOrderListResponse__storage_ {
   uint32_t _has_storage_[1];
   RetCode *retCode;
-  OrderInfo *orderInfo;
-  NSString *mes;
-} GetBuyOrderInfoResponse__storage_;
+  NSMutableArray *orderListArray;
+} GetBuyOrderListResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -551,42 +584,33 @@ typedef struct GetBuyOrderInfoResponse__storage_ {
       {
         .name = "retCode",
         .dataTypeSpecific.className = GPBStringifySymbol(RetCode),
-        .number = GetBuyOrderInfoResponse_FieldNumber_RetCode,
+        .number = GetBuyOrderListResponse_FieldNumber_RetCode,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(GetBuyOrderInfoResponse__storage_, retCode),
+        .offset = (uint32_t)offsetof(GetBuyOrderListResponse__storage_, retCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "orderInfo",
+        .name = "orderListArray",
         .dataTypeSpecific.className = GPBStringifySymbol(OrderInfo),
-        .number = GetBuyOrderInfoResponse_FieldNumber_OrderInfo,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(GetBuyOrderInfoResponse__storage_, orderInfo),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .number = GetBuyOrderListResponse_FieldNumber_OrderListArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(GetBuyOrderListResponse__storage_, orderListArray),
+        .flags = (GPBFieldFlags)(GPBFieldRepeated | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
-      },
-      {
-        .name = "mes",
-        .dataTypeSpecific.className = NULL,
-        .number = GetBuyOrderInfoResponse_FieldNumber_Mes,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(GetBuyOrderInfoResponse__storage_, mes),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[GetBuyOrderInfoResponse class]
+        [GPBDescriptor allocDescriptorForClass:[GetBuyOrderListResponse class]
                                      rootClass:[BuyRoot class]
                                           file:BuyRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(GetBuyOrderInfoResponse__storage_)
+                                   storageSize:sizeof(GetBuyOrderListResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\002\001\007\000\002\t\000";
+        "\002\001\007\000\002\000orderList\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -597,28 +621,28 @@ typedef struct GetBuyOrderInfoResponse__storage_ {
 
 @end
 
-#pragma mark - BuyTaskInfo
+#pragma mark - BuyTripTaskInfo
 
-@implementation BuyTaskInfo
+@implementation BuyTripTaskInfo
 
-@dynamic id_p;
+@dynamic buyTripTaskId;
 @dynamic hasBuySpace, buySpace;
 @dynamic spaceImageArray, spaceImageArray_Count;
 @dynamic hasStartAddresseeInfo, startAddresseeInfo;
 @dynamic hasEndAddressInfo, endAddressInfo;
 @dynamic deadLineTime;
-@dynamic budgetMoney;
+@dynamic hasBudgetMoney, budgetMoney;
 
-typedef struct BuyTaskInfo__storage_ {
+typedef struct BuyTripTaskInfo__storage_ {
   uint32_t _has_storage_[1];
-  int32_t deadLineTime;
-  NSString *id_p;
+  NSString *buyTripTaskId;
   SpaceInfo *buySpace;
   NSMutableArray *spaceImageArray;
   AddresseeInfo *startAddresseeInfo;
   AddresseeInfo *endAddressInfo;
-  double budgetMoney;
-} BuyTaskInfo__storage_;
+  Money *budgetMoney;
+  int64_t deadLineTime;
+} BuyTripTaskInfo__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -627,80 +651,80 @@ typedef struct BuyTaskInfo__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "id_p",
+        .name = "buyTripTaskId",
         .dataTypeSpecific.className = NULL,
-        .number = BuyTaskInfo_FieldNumber_Id_p,
+        .number = BuyTripTaskInfo_FieldNumber_BuyTripTaskId,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(BuyTaskInfo__storage_, id_p),
-        .flags = GPBFieldOptional,
+        .offset = (uint32_t)offsetof(BuyTripTaskInfo__storage_, buyTripTaskId),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "buySpace",
         .dataTypeSpecific.className = GPBStringifySymbol(SpaceInfo),
-        .number = BuyTaskInfo_FieldNumber_BuySpace,
+        .number = BuyTripTaskInfo_FieldNumber_BuySpace,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(BuyTaskInfo__storage_, buySpace),
+        .offset = (uint32_t)offsetof(BuyTripTaskInfo__storage_, buySpace),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
       },
       {
         .name = "spaceImageArray",
         .dataTypeSpecific.className = NULL,
-        .number = BuyTaskInfo_FieldNumber_SpaceImageArray,
+        .number = BuyTripTaskInfo_FieldNumber_SpaceImageArray,
         .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(BuyTaskInfo__storage_, spaceImageArray),
+        .offset = (uint32_t)offsetof(BuyTripTaskInfo__storage_, spaceImageArray),
         .flags = (GPBFieldFlags)(GPBFieldRepeated | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "startAddresseeInfo",
         .dataTypeSpecific.className = GPBStringifySymbol(AddresseeInfo),
-        .number = BuyTaskInfo_FieldNumber_StartAddresseeInfo,
+        .number = BuyTripTaskInfo_FieldNumber_StartAddresseeInfo,
         .hasIndex = 2,
-        .offset = (uint32_t)offsetof(BuyTaskInfo__storage_, startAddresseeInfo),
+        .offset = (uint32_t)offsetof(BuyTripTaskInfo__storage_, startAddresseeInfo),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
       },
       {
         .name = "endAddressInfo",
         .dataTypeSpecific.className = GPBStringifySymbol(AddresseeInfo),
-        .number = BuyTaskInfo_FieldNumber_EndAddressInfo,
+        .number = BuyTripTaskInfo_FieldNumber_EndAddressInfo,
         .hasIndex = 3,
-        .offset = (uint32_t)offsetof(BuyTaskInfo__storage_, endAddressInfo),
+        .offset = (uint32_t)offsetof(BuyTripTaskInfo__storage_, endAddressInfo),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
       },
       {
         .name = "deadLineTime",
         .dataTypeSpecific.className = NULL,
-        .number = BuyTaskInfo_FieldNumber_DeadLineTime,
+        .number = BuyTripTaskInfo_FieldNumber_DeadLineTime,
         .hasIndex = 4,
-        .offset = (uint32_t)offsetof(BuyTaskInfo__storage_, deadLineTime),
+        .offset = (uint32_t)offsetof(BuyTripTaskInfo__storage_, deadLineTime),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeInt32,
+        .dataType = GPBDataTypeInt64,
       },
       {
         .name = "budgetMoney",
-        .dataTypeSpecific.className = NULL,
-        .number = BuyTaskInfo_FieldNumber_BudgetMoney,
+        .dataTypeSpecific.className = GPBStringifySymbol(Money),
+        .number = BuyTripTaskInfo_FieldNumber_BudgetMoney,
         .hasIndex = 5,
-        .offset = (uint32_t)offsetof(BuyTaskInfo__storage_, budgetMoney),
+        .offset = (uint32_t)offsetof(BuyTripTaskInfo__storage_, budgetMoney),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeDouble,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[BuyTaskInfo class]
+        [GPBDescriptor allocDescriptorForClass:[BuyTripTaskInfo class]
                                      rootClass:[BuyRoot class]
                                           file:BuyRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(BuyTaskInfo__storage_)
+                                   storageSize:sizeof(BuyTripTaskInfo__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\006\002\010\000\003\000spaceImage\000\004\022\000\005\016\000\006\014\000\007\013\000";
+        "\007\001\r\000\002\010\000\003\000spaceImage\000\004\022\000\005\016\000\006\014\000\007\013\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -715,23 +739,21 @@ typedef struct BuyTaskInfo__storage_ {
 
 @implementation SellTripTask
 
-@dynamic tripTaskid;
+@dynamic sellTripTaskid;
 @dynamic hasStartAddress, startAddress;
 @dynamic hasEndAddressInfo, endAddressInfo;
 @dynamic beginTime;
 @dynamic endTime;
 @dynamic hasConsignSpace, consignSpace;
 @dynamic hasHandbagSpace, handbagSpace;
-@dynamic orderId;
 
 typedef struct SellTripTask__storage_ {
   uint32_t _has_storage_[1];
-  NSString *tripTaskid;
+  NSString *sellTripTaskid;
   AddressInfo *startAddress;
   AddresseeInfo *endAddressInfo;
   SpaceInfo *consignSpace;
   SpaceInfo *handbagSpace;
-  NSString *orderId;
   int64_t beginTime;
   int64_t endTime;
 } SellTripTask__storage_;
@@ -743,11 +765,11 @@ typedef struct SellTripTask__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "tripTaskid",
+        .name = "sellTripTaskid",
         .dataTypeSpecific.className = NULL,
-        .number = SellTripTask_FieldNumber_TripTaskid,
+        .number = SellTripTask_FieldNumber_SellTripTaskid,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(SellTripTask__storage_, tripTaskid),
+        .offset = (uint32_t)offsetof(SellTripTask__storage_, sellTripTaskid),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
@@ -805,15 +827,6 @@ typedef struct SellTripTask__storage_ {
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
       },
-      {
-        .name = "orderId",
-        .dataTypeSpecific.className = NULL,
-        .number = SellTripTask_FieldNumber_OrderId,
-        .hasIndex = 7,
-        .offset = (uint32_t)offsetof(SellTripTask__storage_, orderId),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeString,
-      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[SellTripTask class]
@@ -825,7 +838,7 @@ typedef struct SellTripTask__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\010\001\n\000\002\014\000\003\016\000\004\t\000\005\007\000\006\014\000\007\014\000\010\007\000";
+        "\007\001\016\000\002\014\000\003\016\000\004\t\000\005\007\000\006\014\000\007\014\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");

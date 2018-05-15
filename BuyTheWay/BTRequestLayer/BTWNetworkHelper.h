@@ -12,7 +12,7 @@ typedef void(^successBlock)( id data);
 typedef void(^failureBlock)(NSError *error);
 
 @interface BTWNetworkHelper : NSObject
-+ (void)requestWithUrl:(NSString *)url methodType:(NSString*)type  body:(id)obj showLoading:(BOOL)show success:(successBlock)success failure:(failureBlock)failure;
++ (void)requestWithUrl:(NSString *)url methodType:(NSString*)type isKey:(BOOL)k body:(id)obj showLoading:(BOOL)show success:(successBlock)success failure:(failureBlock)failure;
 
 
 @end

@@ -47,4 +47,36 @@ UIKIT_EXTERN NSString *const kGetBuyTripTaskList;
 /**  买家预约行程 */
 UIKIT_EXTERN NSString *const kBuyMarrySellTripTaskt;
 /** 买家获得自己的订单列表状态（从预约开始）/buy/getOrderList */
-UIKIT_EXTERN NSString *const kBuyGetOrderList;
+UIKIT_EXTERN NSString *const kBuyGetOrderList; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

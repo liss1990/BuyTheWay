@@ -49,8 +49,7 @@ NSString *const kGetBuyTripTaskList=@"/buy/getBuyTripTaskList";
 /**  买家预约行程 */
 NSString *const kBuyMarrySellTripTaskt=@"/buy/buyMarrySellTripTask";
 /** 买家获得自己的订单列表状态（从预约开始）*/
-NSString *const kBuyGetOrderList=@"/buy/getOrderList";
-
+NSString *const kBuyGetOrderList=@"/buy/getOrderList"; 
 
 
 

@@ -373,7 +373,7 @@ typedef GPB_ENUM(LoginRequest_FieldNumber) {
 /** 登录类型（手机号 邮箱 用户名,邮箱跟用户名暂时没有，不管）或第三方应用名称（微信 等）facebook  WeChat twitter */
 @property(nonatomic, readwrite) IdentityTypeEnum identityType;
 
-/** 标识（手机号 邮箱 用户名或第三方应用的唯一标识）,邮箱跟用户名登陆暂时没有 后续也可以存储到里面 */
+/** 标识（手机号 邮箱 用户名或第三方应用的唯一标识）,邮箱跟用户名登陆暂时没有 后续也可以存储到里面 注意 手机号用户的登录名是（区号+\@\@+手机号） 如+86\@\@1588888888 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *identifier;
 
 /** 站内的保存密码及跟pwd相同，站外的不保存或保存token */

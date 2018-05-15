@@ -131,6 +131,46 @@ BOOL OrderStatus_IsValidValue(int32_t value__) {
   }
 }
 
+#pragma mark - Enum SellTripTaskStatuEnum
+
+GPBEnumDescriptor *SellTripTaskStatuEnum_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Create\000FitIn\000Order\000AllOrder\000Abort\000";
+    static const int32_t values[] = {
+        SellTripTaskStatuEnum_Create,
+        SellTripTaskStatuEnum_FitIn,
+        SellTripTaskStatuEnum_Order,
+        SellTripTaskStatuEnum_AllOrder,
+        SellTripTaskStatuEnum_Abort,
+    };
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(SellTripTaskStatuEnum)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:SellTripTaskStatuEnum_IsValidValue];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL SellTripTaskStatuEnum_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case SellTripTaskStatuEnum_Create:
+    case SellTripTaskStatuEnum_FitIn:
+    case SellTripTaskStatuEnum_Order:
+    case SellTripTaskStatuEnum_AllOrder:
+    case SellTripTaskStatuEnum_Abort:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
 #pragma mark - PhoneNumber
 
 @implementation PhoneNumber
@@ -194,18 +234,12 @@ typedef struct PhoneNumber__storage_ {
 
 @implementation CityInfo
 
-@dynamic country;
-@dynamic provide;
-@dynamic city;
 @dynamic countryCode;
 @dynamic provideCode;
 @dynamic cityCode;
 
 typedef struct CityInfo__storage_ {
   uint32_t _has_storage_[1];
-  NSString *country;
-  NSString *provide;
-  NSString *city;
   NSString *countryCode;
   NSString *provideCode;
   NSString *cityCode;
@@ -218,37 +252,10 @@ typedef struct CityInfo__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "country",
-        .dataTypeSpecific.className = NULL,
-        .number = CityInfo_FieldNumber_Country,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(CityInfo__storage_, country),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "provide",
-        .dataTypeSpecific.className = NULL,
-        .number = CityInfo_FieldNumber_Provide,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(CityInfo__storage_, provide),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "city",
-        .dataTypeSpecific.className = NULL,
-        .number = CityInfo_FieldNumber_City,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(CityInfo__storage_, city),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
         .name = "countryCode",
         .dataTypeSpecific.className = NULL,
         .number = CityInfo_FieldNumber_CountryCode,
-        .hasIndex = 3,
+        .hasIndex = 0,
         .offset = (uint32_t)offsetof(CityInfo__storage_, countryCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
@@ -257,7 +264,7 @@ typedef struct CityInfo__storage_ {
         .name = "provideCode",
         .dataTypeSpecific.className = NULL,
         .number = CityInfo_FieldNumber_ProvideCode,
-        .hasIndex = 4,
+        .hasIndex = 1,
         .offset = (uint32_t)offsetof(CityInfo__storage_, provideCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
@@ -266,7 +273,7 @@ typedef struct CityInfo__storage_ {
         .name = "cityCode",
         .dataTypeSpecific.className = NULL,
         .number = CityInfo_FieldNumber_CityCode,
-        .hasIndex = 5,
+        .hasIndex = 2,
         .offset = (uint32_t)offsetof(CityInfo__storage_, cityCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
@@ -378,9 +385,6 @@ typedef struct SpaceInfo__storage_ {
 
 @implementation AddressInfo
 
-@dynamic country;
-@dynamic provide;
-@dynamic city;
 @dynamic countryCode;
 @dynamic provideCode;
 @dynamic cityCode;
@@ -388,9 +392,6 @@ typedef struct SpaceInfo__storage_ {
 
 typedef struct AddressInfo__storage_ {
   uint32_t _has_storage_[1];
-  NSString *country;
-  NSString *provide;
-  NSString *city;
   NSString *countryCode;
   NSString *provideCode;
   NSString *cityCode;
@@ -404,37 +405,10 @@ typedef struct AddressInfo__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "country",
-        .dataTypeSpecific.className = NULL,
-        .number = AddressInfo_FieldNumber_Country,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(AddressInfo__storage_, country),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "provide",
-        .dataTypeSpecific.className = NULL,
-        .number = AddressInfo_FieldNumber_Provide,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(AddressInfo__storage_, provide),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "city",
-        .dataTypeSpecific.className = NULL,
-        .number = AddressInfo_FieldNumber_City,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(AddressInfo__storage_, city),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
         .name = "countryCode",
         .dataTypeSpecific.className = NULL,
         .number = AddressInfo_FieldNumber_CountryCode,
-        .hasIndex = 3,
+        .hasIndex = 0,
         .offset = (uint32_t)offsetof(AddressInfo__storage_, countryCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
@@ -443,7 +417,7 @@ typedef struct AddressInfo__storage_ {
         .name = "provideCode",
         .dataTypeSpecific.className = NULL,
         .number = AddressInfo_FieldNumber_ProvideCode,
-        .hasIndex = 4,
+        .hasIndex = 1,
         .offset = (uint32_t)offsetof(AddressInfo__storage_, provideCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
@@ -452,7 +426,7 @@ typedef struct AddressInfo__storage_ {
         .name = "cityCode",
         .dataTypeSpecific.className = NULL,
         .number = AddressInfo_FieldNumber_CityCode,
-        .hasIndex = 5,
+        .hasIndex = 2,
         .offset = (uint32_t)offsetof(AddressInfo__storage_, cityCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
@@ -461,7 +435,7 @@ typedef struct AddressInfo__storage_ {
         .name = "address",
         .dataTypeSpecific.className = NULL,
         .number = AddressInfo_FieldNumber_Address,
-        .hasIndex = 6,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(AddressInfo__storage_, address),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
@@ -584,7 +558,7 @@ typedef struct FlightInfo__storage_ {
 
 @implementation AddresseeInfo
 
-@dynamic id_p;
+@dynamic addresseeId;
 @dynamic hasAddress, address;
 @dynamic hasConsigneePhone, consigneePhone;
 @dynamic consigneeName;
@@ -592,7 +566,7 @@ typedef struct FlightInfo__storage_ {
 
 typedef struct AddresseeInfo__storage_ {
   uint32_t _has_storage_[1];
-  NSString *id_p;
+  NSString *addresseeId;
   AddressInfo *address;
   PhoneNumber *consigneePhone;
   NSString *consigneeName;
@@ -605,12 +579,12 @@ typedef struct AddresseeInfo__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "id_p",
+        .name = "addresseeId",
         .dataTypeSpecific.className = NULL,
-        .number = AddresseeInfo_FieldNumber_Id_p,
+        .number = AddresseeInfo_FieldNumber_AddresseeId,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(AddresseeInfo__storage_, id_p),
-        .flags = GPBFieldOptional,
+        .offset = (uint32_t)offsetof(AddresseeInfo__storage_, addresseeId),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
       {
@@ -660,7 +634,7 @@ typedef struct AddresseeInfo__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\002\003\016\000\004\r\000";
+        "\003\001\013\000\003\016\000\004\r\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -670,132 +644,6 @@ typedef struct AddresseeInfo__storage_ {
 }
 
 @end
-
-#pragma mark - OrderInfo
-
-@implementation OrderInfo
-
-@dynamic orderId;
-@dynamic status;
-@dynamic buyIdArray, buyIdArray_Count;
-@dynamic saleId;
-@dynamic money;
-@dynamic moneyUnit;
-@dynamic discardReason;
-
-typedef struct OrderInfo__storage_ {
-  uint32_t _has_storage_[1];
-  OrderStatus status;
-  NSString *orderId;
-  NSMutableArray *buyIdArray;
-  NSString *saleId;
-  NSString *money;
-  NSString *moneyUnit;
-  NSString *discardReason;
-} OrderInfo__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "orderId",
-        .dataTypeSpecific.className = NULL,
-        .number = OrderInfo_FieldNumber_OrderId,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(OrderInfo__storage_, orderId),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "status",
-        .dataTypeSpecific.enumDescFunc = OrderStatus_EnumDescriptor,
-        .number = OrderInfo_FieldNumber_Status,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(OrderInfo__storage_, status),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
-        .dataType = GPBDataTypeEnum,
-      },
-      {
-        .name = "buyIdArray",
-        .dataTypeSpecific.className = NULL,
-        .number = OrderInfo_FieldNumber_BuyIdArray,
-        .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(OrderInfo__storage_, buyIdArray),
-        .flags = (GPBFieldFlags)(GPBFieldRepeated | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "saleId",
-        .dataTypeSpecific.className = NULL,
-        .number = OrderInfo_FieldNumber_SaleId,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(OrderInfo__storage_, saleId),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "money",
-        .dataTypeSpecific.className = NULL,
-        .number = OrderInfo_FieldNumber_Money,
-        .hasIndex = 3,
-        .offset = (uint32_t)offsetof(OrderInfo__storage_, money),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "moneyUnit",
-        .dataTypeSpecific.className = NULL,
-        .number = OrderInfo_FieldNumber_MoneyUnit,
-        .hasIndex = 4,
-        .offset = (uint32_t)offsetof(OrderInfo__storage_, moneyUnit),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "discardReason",
-        .dataTypeSpecific.className = NULL,
-        .number = OrderInfo_FieldNumber_DiscardReason,
-        .hasIndex = 5,
-        .offset = (uint32_t)offsetof(OrderInfo__storage_, discardReason),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeString,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[OrderInfo class]
-                                     rootClass:[BusinessRoot class]
-                                          file:BusinessRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(OrderInfo__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
-    static const char *extraTextFormatInfo =
-        "\005\001\007\000\003\000buyId\000\004\006\000\006\t\000\n\r\000";
-    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
-#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-int32_t OrderInfo_Status_RawValue(OrderInfo *message) {
-  GPBDescriptor *descriptor = [OrderInfo descriptor];
-  GPBFieldDescriptor *field = [descriptor fieldWithNumber:OrderInfo_FieldNumber_Status];
-  return GPBGetMessageInt32Field(message, field);
-}
-
-void SetOrderInfo_Status_RawValue(OrderInfo *message, int32_t value) {
-  GPBDescriptor *descriptor = [OrderInfo descriptor];
-  GPBFieldDescriptor *field = [descriptor fieldWithNumber:OrderInfo_FieldNumber_Status];
-  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
-}
 
 
 #pragma clang diagnostic pop

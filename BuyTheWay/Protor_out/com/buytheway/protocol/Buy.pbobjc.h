@@ -29,12 +29,14 @@ CF_EXTERN_C_BEGIN
 
 @class AddressInfo;
 @class AddresseeInfo;
-@class BuyTaskInfo;
+@class BuyTripTaskInfo;
+@class Money;
 @class OrderInfo;
 @class PageDataRequest;
 @class RetCode;
 @class SellTripTask;
 @class SpaceInfo;
+GPB_ENUM_FWD_DECLARE(OrderStatus);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -64,7 +66,7 @@ typedef GPB_ENUM(BuyTripTaskRequest_FieldNumber) {
  **/
 @interface BuyTripTaskRequest : GPBMessage
 
-@property(nonatomic, readwrite, strong, null_resettable) BuyTaskInfo *taskInfo;
+@property(nonatomic, readwrite, strong, null_resettable) BuyTripTaskInfo *taskInfo;
 /** Test to see if @c taskInfo has been set. */
 @property(nonatomic, readwrite) BOOL hasTaskInfo;
 
@@ -74,11 +76,11 @@ typedef GPB_ENUM(BuyTripTaskRequest_FieldNumber) {
 
 typedef GPB_ENUM(BuyTripTaskResponse_FieldNumber) {
   BuyTripTaskResponse_FieldNumber_RetCode = 1,
-  BuyTripTaskResponse_FieldNumber_BuyId = 2,
+  BuyTripTaskResponse_FieldNumber_BuyTripTaskId = 2,
 };
 
 /**
- * 1.2 买家发布任务后匹配的卖家行程列表
+ * 1.2 买家发布任务后成功 返回买家任务id
  **/
 @interface BuyTripTaskResponse : GPBMessage
 
@@ -87,38 +89,39 @@ typedef GPB_ENUM(BuyTripTaskResponse_FieldNumber) {
 @property(nonatomic, readwrite) BOOL hasRetCode;
 
 /** 需求发布成功后会生成一个id */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *buyId;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *buyTripTaskId;
 
 @end
 
-#pragma mark - GetMatchSaleTaskRequest
+#pragma mark - MarrySellTripTaskListRequest
 
-typedef GPB_ENUM(GetMatchSaleTaskRequest_FieldNumber) {
-  GetMatchSaleTaskRequest_FieldNumber_BuyId = 2,
+typedef GPB_ENUM(MarrySellTripTaskListRequest_FieldNumber) {
+  MarrySellTripTaskListRequest_FieldNumber_BuyTripTaskId = 2,
 };
 
 /**
  * 2.1 根据/buy/tripTask取回的id去匹配卖家发布列表
- * 接口地址：buy/getMatchList
+ * 接口地址：buy/marrySellTripTaskList
  **/
-@interface GetMatchSaleTaskRequest : GPBMessage
+@interface MarrySellTripTaskListRequest : GPBMessage
 
 /** 需求发布成功后会生成一个id */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *buyId;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *buyTripTaskId;
 
 @end
 
-#pragma mark - GetMatchSaleTaskResponse
+#pragma mark - MarrySellTripTaskListResponse
 
-typedef GPB_ENUM(GetMatchSaleTaskResponse_FieldNumber) {
-  GetMatchSaleTaskResponse_FieldNumber_RetCode = 1,
-  GetMatchSaleTaskResponse_FieldNumber_MarrySellTripTaskArray = 2,
+typedef GPB_ENUM(MarrySellTripTaskListResponse_FieldNumber) {
+  MarrySellTripTaskListResponse_FieldNumber_RetCode = 1,
+  MarrySellTripTaskListResponse_FieldNumber_MarrySellTripTaskArray = 2,
+  MarrySellTripTaskListResponse_FieldNumber_BuyTripTaskid = 3,
 };
 
 /**
  * 2.2
  **/
-@interface GetMatchSaleTaskResponse : GPBMessage
+@interface MarrySellTripTaskListResponse : GPBMessage
 
 @property(nonatomic, readwrite, strong, null_resettable) RetCode *retCode;
 /** Test to see if @c retCode has been set. */
@@ -129,18 +132,21 @@ typedef GPB_ENUM(GetMatchSaleTaskResponse_FieldNumber) {
 /** The number of items in @c marrySellTripTaskArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger marrySellTripTaskArray_Count;
 
+/** 本次匹配到的行程 所属的任务id */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *buyTripTaskid;
+
 @end
 
-#pragma mark - GetSellTripTaskListRequest
+#pragma mark - GetBuyTripTaskListRequest
 
-typedef GPB_ENUM(GetSellTripTaskListRequest_FieldNumber) {
-  GetSellTripTaskListRequest_FieldNumber_Req = 1,
+typedef GPB_ENUM(GetBuyTripTaskListRequest_FieldNumber) {
+  GetBuyTripTaskListRequest_FieldNumber_Req = 1,
 };
 
 /**
- * 3.1 取买家自己发布的需求列表 buy/getMyTripTaskList
+ * 3.1 取买家自己发布的需求列表 buy/getBuyTripTaskList
  **/
-@interface GetSellTripTaskListRequest : GPBMessage
+@interface GetBuyTripTaskListRequest : GPBMessage
 
 @property(nonatomic, readwrite, strong, null_resettable) PageDataRequest *req;
 /** Test to see if @c req has been set. */
@@ -148,24 +154,24 @@ typedef GPB_ENUM(GetSellTripTaskListRequest_FieldNumber) {
 
 @end
 
-#pragma mark - GetSellTripTaskListRequestRespons
+#pragma mark - GetBuyTripTaskListResponse
 
-typedef GPB_ENUM(GetSellTripTaskListRequestRespons_FieldNumber) {
-  GetSellTripTaskListRequestRespons_FieldNumber_RetCode = 1,
-  GetSellTripTaskListRequestRespons_FieldNumber_TaskListArray = 2,
+typedef GPB_ENUM(GetBuyTripTaskListResponse_FieldNumber) {
+  GetBuyTripTaskListResponse_FieldNumber_RetCode = 1,
+  GetBuyTripTaskListResponse_FieldNumber_TaskListArray = 2,
 };
 
 /**
  * 3.2返回
  **/
-@interface GetSellTripTaskListRequestRespons : GPBMessage
+@interface GetBuyTripTaskListResponse : GPBMessage
 
 @property(nonatomic, readwrite, strong, null_resettable) RetCode *retCode;
 /** Test to see if @c retCode has been set. */
 @property(nonatomic, readwrite) BOOL hasRetCode;
 
 /** 匹配的行程列表 */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<BuyTaskInfo*> *taskListArray;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<BuyTripTaskInfo*> *taskListArray;
 /** The number of items in @c taskListArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger taskListArray_Count;
 
@@ -175,7 +181,7 @@ typedef GPB_ENUM(GetSellTripTaskListRequestRespons_FieldNumber) {
 
 typedef GPB_ENUM(BuyMarrySellTripTaskRequest_FieldNumber) {
   BuyMarrySellTripTaskRequest_FieldNumber_SellTripTaskid = 1,
-  BuyMarrySellTripTaskRequest_FieldNumber_BuyUserBizId = 2,
+  BuyMarrySellTripTaskRequest_FieldNumber_BuyTripTaskid = 2,
 };
 
 /**
@@ -186,8 +192,8 @@ typedef GPB_ENUM(BuyMarrySellTripTaskRequest_FieldNumber) {
 /** 卖家的行程任务 id */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *sellTripTaskid;
 
-/** 买家用户id */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *buyUserBizId;
+/** 买家任务id */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *buyTripTaskid;
 
 @end
 
@@ -195,7 +201,7 @@ typedef GPB_ENUM(BuyMarrySellTripTaskRequest_FieldNumber) {
 
 typedef GPB_ENUM(BuyMarrySellTripTaskRespons_FieldNumber) {
   BuyMarrySellTripTaskRespons_FieldNumber_RetCode = 1,
-  BuyMarrySellTripTaskRespons_FieldNumber_MarrySellTripTaskId = 2,
+  BuyMarrySellTripTaskRespons_FieldNumber_OrderId = 2,
 };
 
 /**
@@ -207,67 +213,83 @@ typedef GPB_ENUM(BuyMarrySellTripTaskRespons_FieldNumber) {
 /** Test to see if @c retCode has been set. */
 @property(nonatomic, readwrite) BOOL hasRetCode;
 
-/** 返回预约id暂时无用 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *marrySellTripTaskId;
-
-@end
-
-#pragma mark - GetBuyOrderInfoRequest
-
-typedef GPB_ENUM(GetBuyOrderInfoRequest_FieldNumber) {
-  GetBuyOrderInfoRequest_FieldNumber_OrderId = 1,
-};
-
-/**
- * 获得待支付订单 ，当卖家同意预约订单后 就会返回 ??  此处 等第三模块调试在考虑
- * 专家查询订单信息（状态，1.支付后会以后台返回的支付成功为准）
- * 同一订单，卖家和买家能看到的数据是需要区分的，所以同样是订单信息，分卖家和买家2个接口
- * buy/getOrderInfo
- **/
-@interface GetBuyOrderInfoRequest : GPBMessage
-
+/** 返回预约id 即 orderId 、、后台会生成预约订单记录（建立卖家买家行程关联关系） 状态为已预约 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *orderId;
 
 @end
 
-#pragma mark - GetBuyOrderInfoResponse
+#pragma mark - GetBuyOrderListRequest
 
-typedef GPB_ENUM(GetBuyOrderInfoResponse_FieldNumber) {
-  GetBuyOrderInfoResponse_FieldNumber_RetCode = 1,
-  GetBuyOrderInfoResponse_FieldNumber_OrderInfo = 2,
-  GetBuyOrderInfoResponse_FieldNumber_Mes = 3,
+typedef GPB_ENUM(GetBuyOrderListRequest_FieldNumber) {
+  GetBuyOrderListRequest_FieldNumber_OrderStutus = 1,
+  GetBuyOrderListRequest_FieldNumber_Req = 2,
 };
 
-@interface GetBuyOrderInfoResponse : GPBMessage
+/**
+ * 5.1 买家获得自己的订单列表状态（从预约开始） /buy/getOrderList
+ **/
+@interface GetBuyOrderListRequest : GPBMessage
+
+@property(nonatomic, readwrite) enum OrderStatus orderStutus;
+
+@property(nonatomic, readwrite, strong, null_resettable) PageDataRequest *req;
+/** Test to see if @c req has been set. */
+@property(nonatomic, readwrite) BOOL hasReq;
+
+@end
+
+/**
+ * Fetches the raw value of a @c GetBuyOrderListRequest's @c orderStutus property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t GetBuyOrderListRequest_OrderStutus_RawValue(GetBuyOrderListRequest *message);
+/**
+ * Sets the raw value of an @c GetBuyOrderListRequest's @c orderStutus property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetGetBuyOrderListRequest_OrderStutus_RawValue(GetBuyOrderListRequest *message, int32_t value);
+
+#pragma mark - GetBuyOrderListResponse
+
+typedef GPB_ENUM(GetBuyOrderListResponse_FieldNumber) {
+  GetBuyOrderListResponse_FieldNumber_RetCode = 1,
+  GetBuyOrderListResponse_FieldNumber_OrderListArray = 2,
+};
+
+/**
+ * 5.2 买家获得自己的订单列表返回
+ **/
+@interface GetBuyOrderListResponse : GPBMessage
 
 @property(nonatomic, readwrite, strong, null_resettable) RetCode *retCode;
 /** Test to see if @c retCode has been set. */
 @property(nonatomic, readwrite) BOOL hasRetCode;
 
-@property(nonatomic, readwrite, strong, null_resettable) OrderInfo *orderInfo;
-/** Test to see if @c orderInfo has been set. */
-@property(nonatomic, readwrite) BOOL hasOrderInfo;
-
-/** 订单界面详情  按照需求 这里应该是要有各种信息的 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *mes;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<OrderInfo*> *orderListArray;
+/** The number of items in @c orderListArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger orderListArray_Count;
 
 @end
 
-#pragma mark - BuyTaskInfo
+#pragma mark - BuyTripTaskInfo
 
-typedef GPB_ENUM(BuyTaskInfo_FieldNumber) {
-  BuyTaskInfo_FieldNumber_Id_p = 1,
-  BuyTaskInfo_FieldNumber_BuySpace = 2,
-  BuyTaskInfo_FieldNumber_SpaceImageArray = 3,
-  BuyTaskInfo_FieldNumber_StartAddresseeInfo = 4,
-  BuyTaskInfo_FieldNumber_EndAddressInfo = 5,
-  BuyTaskInfo_FieldNumber_DeadLineTime = 6,
-  BuyTaskInfo_FieldNumber_BudgetMoney = 7,
+typedef GPB_ENUM(BuyTripTaskInfo_FieldNumber) {
+  BuyTripTaskInfo_FieldNumber_BuyTripTaskId = 1,
+  BuyTripTaskInfo_FieldNumber_BuySpace = 2,
+  BuyTripTaskInfo_FieldNumber_SpaceImageArray = 3,
+  BuyTripTaskInfo_FieldNumber_StartAddresseeInfo = 4,
+  BuyTripTaskInfo_FieldNumber_EndAddressInfo = 5,
+  BuyTripTaskInfo_FieldNumber_DeadLineTime = 6,
+  BuyTripTaskInfo_FieldNumber_BudgetMoney = 7,
 };
 
-@interface BuyTaskInfo : GPBMessage
+/**
+ * 买家发布的任务 实体
+ **/
+@interface BuyTripTaskInfo : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *buyTripTaskId;
 
 /** 买家需要寄送的货物 规格重量 */
 @property(nonatomic, readwrite, strong, null_resettable) SpaceInfo *buySpace;
@@ -290,24 +312,25 @@ typedef GPB_ENUM(BuyTaskInfo_FieldNumber) {
 @property(nonatomic, readwrite) BOOL hasEndAddressInfo;
 
 /** 买家要求的最迟的货物寄到目的地的时间 */
-@property(nonatomic, readwrite) int32_t deadLineTime;
+@property(nonatomic, readwrite) int64_t deadLineTime;
 
 /** 预算价格 ？  币种转换 得考虑 系统子酸 ，到时候这个用一个实体，价格跟币种绑定使用 */
-@property(nonatomic, readwrite) double budgetMoney;
+@property(nonatomic, readwrite, strong, null_resettable) Money *budgetMoney;
+/** Test to see if @c budgetMoney has been set. */
+@property(nonatomic, readwrite) BOOL hasBudgetMoney;
 
 @end
 
 #pragma mark - SellTripTask
 
 typedef GPB_ENUM(SellTripTask_FieldNumber) {
-  SellTripTask_FieldNumber_TripTaskid = 1,
+  SellTripTask_FieldNumber_SellTripTaskid = 1,
   SellTripTask_FieldNumber_StartAddress = 2,
   SellTripTask_FieldNumber_EndAddressInfo = 3,
   SellTripTask_FieldNumber_BeginTime = 4,
   SellTripTask_FieldNumber_EndTime = 5,
   SellTripTask_FieldNumber_ConsignSpace = 6,
   SellTripTask_FieldNumber_HandbagSpace = 7,
-  SellTripTask_FieldNumber_OrderId = 8,
 };
 
 /**
@@ -315,7 +338,7 @@ typedef GPB_ENUM(SellTripTask_FieldNumber) {
  **/
 @interface SellTripTask : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *tripTaskid;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *sellTripTaskid;
 
 /** 卖家行程开始地址 */
 @property(nonatomic, readwrite, strong, null_resettable) AddressInfo *startAddress;
@@ -342,9 +365,6 @@ typedef GPB_ENUM(SellTripTask_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) SpaceInfo *handbagSpace;
 /** Test to see if @c handbagSpace has been set. */
 @property(nonatomic, readwrite) BOOL hasHandbagSpace;
-
-/** 如果有，则返回 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *orderId;
 
 @end
 

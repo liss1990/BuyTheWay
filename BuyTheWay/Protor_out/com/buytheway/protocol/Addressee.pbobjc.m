@@ -134,10 +134,12 @@ typedef struct GetUserAddresseeListRequest__storage_ {
 
 @implementation GetUserAddresseeListResponse
 
+@dynamic hasRetCode, retCode;
 @dynamic addresseeArray, addresseeArray_Count;
 
 typedef struct GetUserAddresseeListResponse__storage_ {
   uint32_t _has_storage_[1];
+  RetCode *retCode;
   NSMutableArray *addresseeArray;
 } GetUserAddresseeListResponse__storage_;
 
@@ -147,6 +149,15 @@ typedef struct GetUserAddresseeListResponse__storage_ {
   static GPBDescriptor *descriptor = nil;
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "retCode",
+        .dataTypeSpecific.className = GPBStringifySymbol(RetCode),
+        .number = GetUserAddresseeListResponse_FieldNumber_RetCode,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(GetUserAddresseeListResponse__storage_, retCode),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeMessage,
+      },
       {
         .name = "addresseeArray",
         .dataTypeSpecific.className = GPBStringifySymbol(AddresseeInfo),
@@ -165,6 +176,11 @@ typedef struct GetUserAddresseeListResponse__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetUserAddresseeListResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\001\001\007\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }
