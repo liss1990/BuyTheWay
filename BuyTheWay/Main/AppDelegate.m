@@ -10,6 +10,7 @@
 #import "BTWRootViewController.h"
 #import <UMCommon/UMCommon.h>
 #import <UMShare/UMShare.h>
+#import "HYLoginViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -22,7 +23,7 @@
 //    [[FBSDKApplicationDelegate sharedInstance] application:application
 //                             didFinishLaunchingWithOptions:launchOptions];
      [UMConfigure initWithAppkey:@"5af994768f4a9d68520000e6" channel:nil];
-    self.window.rootViewController = [[BTWRootViewController alloc]init];
+    self.window.rootViewController = [[HYLoginViewController alloc]init];  // [[BTWRootViewController alloc]init];
     [self.window makeKeyAndVisible];
     
     

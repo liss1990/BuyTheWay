@@ -110,67 +110,17 @@
 }
 
 -(void)smg{
-    GetSmsRequest *smg = [[GetSmsRequest alloc]init];
-    PhoneNumber *phone = [[PhoneNumber alloc]init];
-    phone.phonePre = @"+86";
-    phone.phone = @"18023008100";
-    smg.phoneNumber = phone;
-    smg.smsType = 1 ;
-    [BTHTTPRequest smsResponseWithParameters:smg success:^(id response) {
-        
-    } failure:^(NSError *error) {
-    }];
+ 
     
 }
 
 -(void)registerbtn{
     
-    RegisterRequest *reg = [[RegisterRequest alloc]init];
-    PhoneNumber *phone = [[PhoneNumber alloc]init];
-    phone.phonePre = @"+86";
-    phone.phone = @"18023008101";
-    reg.phoneNumber = phone;
-    reg.code = @"888888";
-    
-    NSString *str1 = @"r-H<\"<>,5){!bB(<|5#";
-    NSString *str2 =@"D#[Hy;T(?8+;g~0M?wTa";
-    NSString *sha512str =  [NSString stringWithFormat:@"11111111%@",str1].sha512;
-    NSString *sha256st = [NSString stringWithFormat:@"%@%@",sha512str,str2].sha256; 
-    reg.pwd = sha256st;
-    reg.nickName = @"李丝思";
-    reg.identityType = IdentityTypeEnum_Mobile;
-    reg.identifier = @"6";
-    reg.credential = @"7";
-    reg.isBind = 0;
-    [BTHTTPRequest registerWithParameters:reg success:^(id response) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+
     
 }
 -(void)login{
-    LoginRequest *login = [[LoginRequest alloc]init];
-    login.identityType = 1;
-    login.identifier = @"+86@@18023008101";
-    NSString *str1 = @"r-H<\"<>,5){!bB(<|5#";
-    NSString *str2 =@"D#[Hy;T(?8+;g~0M?wTa";
-    NSString *sha512str =  [NSString stringWithFormat:@"11111111%@",str1].sha512;
-    NSString *sha256st = [NSString stringWithFormat:@"%@%@",sha512str,str2].sha256;
-    login.credential = sha256st;
-    login.deviceType = 2;
-    [BTHTTPRequest loginWithParameters:login success:^(id response) {
-        LoginResponse *logModel = response;
-        User *user1 = [[User alloc]init];
-        user1 = logModel.user;
-        NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-//        [user setObject:user1 forKey:@"userModel"];
-        [user setObject:logModel.token forKey:@"token"];
-        [user setObject:logModel.signKey forKey:@"signKey"];
-        [user synchronize]; 
-    } failure:^(NSError *error) {
-        
-    }];
+  
 }
 
 -(void)reset{

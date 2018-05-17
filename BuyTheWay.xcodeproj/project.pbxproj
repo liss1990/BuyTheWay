@@ -41,6 +41,14 @@
 		77BC55642098BC4100836493 /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC554D2098BC4100836493 /* YYKVStorage.m */; };
 		77BC55652098BC4100836493 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC554E2098BC4100836493 /* YYMemoryCache.m */; };
 		77BC55692098BE7400836493 /* BTInterfacedConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC55682098BE7400836493 /* BTInterfacedConst.m */; };
+		77E7045220ADCED30007AED6 /* HYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7045020ADCED30007AED6 /* HYLoginViewController.m */; };
+		77E7045320ADCED30007AED6 /* HYLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77E7045120ADCED30007AED6 /* HYLoginViewController.xib */; };
+		77E7045C20ADD6830007AED6 /* BTSellerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7045A20ADD6830007AED6 /* BTSellerViewController.m */; };
+		77E7045D20ADD6830007AED6 /* BTSellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77E7045B20ADD6830007AED6 /* BTSellerViewController.xib */; };
+		77E7046120ADDE400007AED6 /* BTSellerSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7045F20ADDE400007AED6 /* BTSellerSendViewController.m */; };
+		77E7046220ADDE400007AED6 /* BTSellerSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77E7046020ADDE400007AED6 /* BTSellerSendViewController.xib */; };
+		77E7046620ADDF920007AED6 /* BTBuyerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7046420ADDF920007AED6 /* BTBuyerViewController.m */; };
+		77E7046720ADDF920007AED6 /* BTBuyerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77E7046520ADDF920007AED6 /* BTBuyerViewController.xib */; };
 		77F4A2EA20A07DF300B0D406 /* RSAPubKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F4A2E720A07DF200B0D406 /* RSAPubKey.m */; };
 		77F4A2EB20A07DF300B0D406 /* NSData+RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F4A2E920A07DF300B0D406 /* NSData+RSA.m */; };
 		77F4A2EE20A07F1E00B0D406 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = 77F4A2EC20A07F1D00B0D406 /* public_key.der */; };
@@ -195,6 +203,18 @@
 		77BC554E2098BC4100836493 /* YYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMemoryCache.m; sourceTree = "<group>"; };
 		77BC55672098BE7400836493 /* BTInterfacedConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTInterfacedConst.h; sourceTree = "<group>"; };
 		77BC55682098BE7400836493 /* BTInterfacedConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTInterfacedConst.m; sourceTree = "<group>"; };
+		77E7044F20ADCED30007AED6 /* HYLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYLoginViewController.h; sourceTree = "<group>"; };
+		77E7045020ADCED30007AED6 /* HYLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYLoginViewController.m; sourceTree = "<group>"; };
+		77E7045120ADCED30007AED6 /* HYLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HYLoginViewController.xib; sourceTree = "<group>"; };
+		77E7045920ADD6830007AED6 /* BTSellerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTSellerViewController.h; sourceTree = "<group>"; };
+		77E7045A20ADD6830007AED6 /* BTSellerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTSellerViewController.m; sourceTree = "<group>"; };
+		77E7045B20ADD6830007AED6 /* BTSellerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTSellerViewController.xib; sourceTree = "<group>"; };
+		77E7045E20ADDE400007AED6 /* BTSellerSendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTSellerSendViewController.h; sourceTree = "<group>"; };
+		77E7045F20ADDE400007AED6 /* BTSellerSendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTSellerSendViewController.m; sourceTree = "<group>"; };
+		77E7046020ADDE400007AED6 /* BTSellerSendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTSellerSendViewController.xib; sourceTree = "<group>"; };
+		77E7046320ADDF920007AED6 /* BTBuyerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTBuyerViewController.h; sourceTree = "<group>"; };
+		77E7046420ADDF920007AED6 /* BTBuyerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBuyerViewController.m; sourceTree = "<group>"; };
+		77E7046520ADDF920007AED6 /* BTBuyerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTBuyerViewController.xib; sourceTree = "<group>"; };
 		77F4A2E120A07DF200B0D406 /* RSAPubKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAPubKey.h; sourceTree = "<group>"; };
 		77F4A2E720A07DF200B0D406 /* RSAPubKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAPubKey.m; sourceTree = "<group>"; };
 		77F4A2E820A07DF300B0D406 /* NSData+RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+RSA.h"; sourceTree = "<group>"; };
@@ -333,6 +353,18 @@
 		777F54262099F33D00ADC7E5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				77E7044F20ADCED30007AED6 /* HYLoginViewController.h */,
+				77E7045020ADCED30007AED6 /* HYLoginViewController.m */,
+				77E7045120ADCED30007AED6 /* HYLoginViewController.xib */,
+				77E7045920ADD6830007AED6 /* BTSellerViewController.h */,
+				77E7045A20ADD6830007AED6 /* BTSellerViewController.m */,
+				77E7045B20ADD6830007AED6 /* BTSellerViewController.xib */,
+				77E7045E20ADDE400007AED6 /* BTSellerSendViewController.h */,
+				77E7045F20ADDE400007AED6 /* BTSellerSendViewController.m */,
+				77E7046020ADDE400007AED6 /* BTSellerSendViewController.xib */,
+				77E7046320ADDF920007AED6 /* BTBuyerViewController.h */,
+				77E7046420ADDF920007AED6 /* BTBuyerViewController.m */,
+				77E7046520ADDF920007AED6 /* BTBuyerViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -817,11 +849,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77E7045D20ADD6830007AED6 /* BTSellerViewController.xib in Resources */,
 				77F5C69B2095CBEE00709FDC /* LaunchScreen.storyboard in Resources */,
 				77F5C6982095CBEE00709FDC /* Assets.xcassets in Resources */,
 				77F4A2EE20A07F1E00B0D406 /* public_key.der in Resources */,
+				77E7045320ADCED30007AED6 /* HYLoginViewController.xib in Resources */,
 				77BC55502098BC4100836493 /* README.md in Resources */,
 				77F4A2EF20A07F1E00B0D406 /* private_key.p12 in Resources */,
+				77E7046220ADDE400007AED6 /* BTSellerSendViewController.xib in Resources */,
+				77E7046720ADDF920007AED6 /* BTBuyerViewController.xib in Resources */,
 				77BC554F2098BC4100836493 /* LICENSE in Resources */,
 				77F5C6962095CBEC00709FDC /* Main.storyboard in Resources */,
 			);
@@ -928,6 +964,8 @@
 				77FB60B020A1DCBF002FB1B8 /* BTWHomeViewController.m in Sources */,
 				77F4A2F220A07FBB00B0D406 /* RSAEncryptor.m in Sources */,
 				77F5C6F22095CE4600709FDC /* Sell.pbobjc.m in Sources */,
+				77E7045C20ADD6830007AED6 /* BTSellerViewController.m in Sources */,
+				77E7045220ADCED30007AED6 /* HYLoginViewController.m in Sources */,
 				77F4A2F520A0C3BD00B0D406 /* BTWNetworkHelper.m in Sources */,
 				77BC55642098BC4100836493 /* YYKVStorage.m in Sources */,
 				77FB608C20A1D810002FB1B8 /* BTWRootViewController.m in Sources */,
@@ -937,6 +975,7 @@
 				77BC55562098BC4100836493 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				77F5C6F12095CE4600709FDC /* Buy.pbobjc.m in Sources */,
 				77FB60AD20A1DBD7002FB1B8 /* SNTheme.m in Sources */,
+				77E7046620ADDF920007AED6 /* BTBuyerViewController.m in Sources */,
 				77FB609020A1D883002FB1B8 /* SNUtils.m in Sources */,
 				77BC55652098BC4100836493 /* YYMemoryCache.m in Sources */,
 				77F5C6932095CBEC00709FDC /* ViewController.m in Sources */,
@@ -960,6 +999,7 @@
 				77FB60AB20A1DBD7002FB1B8 /* UIImage+RTTint.m in Sources */,
 				77BC555E2098BC4100836493 /* AFNetworkReachabilityManager.m in Sources */,
 				77BC555D2098BC4100836493 /* AFURLRequestSerialization.m in Sources */,
+				77E7046120ADDE400007AED6 /* BTSellerSendViewController.m in Sources */,
 				777F54252099E74E00ADC7E5 /* NSString+SHA.m in Sources */,
 				77F5C6EF2095CE4600709FDC /* Business.pbobjc.m in Sources */,
 				77BC55602098BC4100836493 /* PPNetworkHelper.m in Sources */,

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BTSellerSendViewController">
+            <connections>
+                <outlet property="address" destination="Nfl-wZ-QCc" id="SbJ-rt-QdJ"/>
+                <outlet property="name" destination="cFw-DN-e8y" id="Kw1-mw-ean"/>
+                <outlet property="phone" destination="jnF-63-VJv" id="F2V-KH-APR"/>
+                <outlet property="time" destination="htP-Ue-Jiv" id="BsN-lC-vVI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="买假需在此时间送货给你" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="htP-Ue-Jiv">
+                    <rect key="frame" x="15" y="97" width="345" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="QUi-QN-WSV"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFw-DN-e8y">
+                    <rect key="frame" x="15" y="157" width="345" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Swz-Pe-soH"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nfl-wZ-QCc">
+                    <rect key="frame" x="15" y="217" width="345" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="MWG-gv-hJG"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="联系电话" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnF-63-VJv">
+                    <rect key="frame" x="15" y="277" width="345" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="MI6-Gg-m1Q"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUZ-FR-WQC">
+                    <rect key="frame" x="15" y="337" width="345" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="erg-vE-EPW"/>
+                    </constraints>
+                    <state key="normal" title="确认发布"/>
+                    <connections>
+                        <action selector="saveBtn:" destination="-1" eventType="touchUpInside" id="XuO-dj-UEt"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Nfl-wZ-QCc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="69c-Yj-Qrz"/>
+                <constraint firstItem="htP-Ue-Jiv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="97" id="8hY-TL-sIO"/>
+                <constraint firstItem="cFw-DN-e8y" firstAttribute="top" secondItem="htP-Ue-Jiv" secondAttribute="bottom" constant="20" id="8nY-c4-GP8"/>
+                <constraint firstItem="htP-Ue-Jiv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="A3W-pw-jcZ"/>
+                <constraint firstAttribute="trailing" secondItem="jnF-63-VJv" secondAttribute="trailing" constant="15" id="J6b-Y1-LxS"/>
+                <constraint firstItem="Nfl-wZ-QCc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="JPe-oq-VsV"/>
+                <constraint firstItem="cFw-DN-e8y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JPq-Qd-sqt"/>
+                <constraint firstItem="jnF-63-VJv" firstAttribute="top" secondItem="Nfl-wZ-QCc" secondAttribute="bottom" constant="20" id="MQy-he-GvJ"/>
+                <constraint firstAttribute="trailing" secondItem="Nfl-wZ-QCc" secondAttribute="trailing" constant="15" id="MgY-QI-8p1"/>
+                <constraint firstItem="rUZ-FR-WQC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="S2a-aV-0y0"/>
+                <constraint firstAttribute="trailing" secondItem="rUZ-FR-WQC" secondAttribute="trailing" constant="15" id="cDG-9e-aj9"/>
+                <constraint firstItem="jnF-63-VJv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="cSg-WY-KWY"/>
+                <constraint firstItem="htP-Ue-Jiv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="clc-i6-V2m"/>
+                <constraint firstItem="cFw-DN-e8y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="ef9-g6-tVa"/>
+                <constraint firstAttribute="trailing" secondItem="htP-Ue-Jiv" secondAttribute="trailing" constant="15" id="fAy-MM-aLR"/>
+                <constraint firstAttribute="trailing" secondItem="cFw-DN-e8y" secondAttribute="trailing" constant="15" id="fha-Xz-idv"/>
+                <constraint firstItem="jnF-63-VJv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gXx-H2-qa6"/>
+                <constraint firstItem="rUZ-FR-WQC" firstAttribute="top" secondItem="jnF-63-VJv" secondAttribute="bottom" constant="20" id="hLW-rf-OVP"/>
+                <constraint firstItem="rUZ-FR-WQC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oUC-CN-1jO"/>
+                <constraint firstItem="Nfl-wZ-QCc" firstAttribute="top" secondItem="cFw-DN-e8y" secondAttribute="bottom" constant="20" id="x0f-jU-1ff"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
