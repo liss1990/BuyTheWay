@@ -41,6 +41,8 @@
 		77BC55642098BC4100836493 /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC554D2098BC4100836493 /* YYKVStorage.m */; };
 		77BC55652098BC4100836493 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC554E2098BC4100836493 /* YYMemoryCache.m */; };
 		77BC55692098BE7400836493 /* BTInterfacedConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC55682098BE7400836493 /* BTInterfacedConst.m */; };
+		77D947AD20B1B7E200BA09AA /* BTBuyerSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D947AB20B1B7E200BA09AA /* BTBuyerSendViewController.m */; };
+		77D947AE20B1B7E200BA09AA /* BTBuyerSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77D947AC20B1B7E200BA09AA /* BTBuyerSendViewController.xib */; };
 		77E7045220ADCED30007AED6 /* HYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7045020ADCED30007AED6 /* HYLoginViewController.m */; };
 		77E7045320ADCED30007AED6 /* HYLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77E7045120ADCED30007AED6 /* HYLoginViewController.xib */; };
 		77E7045C20ADD6830007AED6 /* BTSellerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7045A20ADD6830007AED6 /* BTSellerViewController.m */; };
@@ -203,6 +205,9 @@
 		77BC554E2098BC4100836493 /* YYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMemoryCache.m; sourceTree = "<group>"; };
 		77BC55672098BE7400836493 /* BTInterfacedConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTInterfacedConst.h; sourceTree = "<group>"; };
 		77BC55682098BE7400836493 /* BTInterfacedConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTInterfacedConst.m; sourceTree = "<group>"; };
+		77D947AA20B1B7E200BA09AA /* BTBuyerSendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTBuyerSendViewController.h; sourceTree = "<group>"; };
+		77D947AB20B1B7E200BA09AA /* BTBuyerSendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBuyerSendViewController.m; sourceTree = "<group>"; };
+		77D947AC20B1B7E200BA09AA /* BTBuyerSendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTBuyerSendViewController.xib; sourceTree = "<group>"; };
 		77E7044F20ADCED30007AED6 /* HYLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYLoginViewController.h; sourceTree = "<group>"; };
 		77E7045020ADCED30007AED6 /* HYLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYLoginViewController.m; sourceTree = "<group>"; };
 		77E7045120ADCED30007AED6 /* HYLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HYLoginViewController.xib; sourceTree = "<group>"; };
@@ -363,6 +368,9 @@
 				77E7045F20ADDE400007AED6 /* BTSellerSendViewController.m */,
 				77E7046020ADDE400007AED6 /* BTSellerSendViewController.xib */,
 				77E7046320ADDF920007AED6 /* BTBuyerViewController.h */,
+				77D947AA20B1B7E200BA09AA /* BTBuyerSendViewController.h */,
+				77D947AB20B1B7E200BA09AA /* BTBuyerSendViewController.m */,
+				77D947AC20B1B7E200BA09AA /* BTBuyerSendViewController.xib */,
 				77E7046420ADDF920007AED6 /* BTBuyerViewController.m */,
 				77E7046520ADDF920007AED6 /* BTBuyerViewController.xib */,
 			);
@@ -849,6 +857,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77D947AE20B1B7E200BA09AA /* BTBuyerSendViewController.xib in Resources */,
 				77E7045D20ADD6830007AED6 /* BTSellerViewController.xib in Resources */,
 				77F5C69B2095CBEE00709FDC /* LaunchScreen.storyboard in Resources */,
 				77F5C6982095CBEE00709FDC /* Assets.xcassets in Resources */,
@@ -987,6 +996,7 @@
 				77BC55582098BC4100836493 /* AFAutoPurgingImageCache.m in Sources */,
 				77BC55572098BC4100836493 /* UIWebView+AFNetworking.m in Sources */,
 				777F5435209A13A100ADC7E5 /* RSA.m in Sources */,
+				77D947AD20B1B7E200BA09AA /* BTBuyerSendViewController.m in Sources */,
 				77F5C6EB2095CE4600709FDC /* Cardauth.pbobjc.m in Sources */,
 				77F4A2EA20A07DF300B0D406 /* RSAPubKey.m in Sources */,
 				77BC55622098BC4100836493 /* YYDiskCache.m in Sources */,
