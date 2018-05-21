@@ -17,4 +17,5 @@ pod 'UMCShare/UI'
 # 集成Facebook/Messenger
 pod 'UMCShare/Social/Facebook'
  pod 'UMCShare/Social/Twitter'
+ pod 'IQKeyboardManager'
 end

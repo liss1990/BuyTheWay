@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Buy.pbobjc.h"
+#import "Business.pbobjc.h"
 @interface BTBuyerSendViewController : UIViewController
-
+@property(nonatomic,strong)SpaceInfo *sp;
 @end

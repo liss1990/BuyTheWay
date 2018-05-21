@@ -367,10 +367,10 @@
 				77E7045E20ADDE400007AED6 /* BTSellerSendViewController.h */,
 				77E7045F20ADDE400007AED6 /* BTSellerSendViewController.m */,
 				77E7046020ADDE400007AED6 /* BTSellerSendViewController.xib */,
-				77E7046320ADDF920007AED6 /* BTBuyerViewController.h */,
 				77D947AA20B1B7E200BA09AA /* BTBuyerSendViewController.h */,
 				77D947AB20B1B7E200BA09AA /* BTBuyerSendViewController.m */,
 				77D947AC20B1B7E200BA09AA /* BTBuyerSendViewController.xib */,
+				77E7046320ADDF920007AED6 /* BTBuyerViewController.h */,
 				77E7046420ADDF920007AED6 /* BTBuyerViewController.m */,
 				77E7046520ADDF920007AED6 /* BTBuyerViewController.xib */,
 			);
@@ -918,12 +918,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BuyTheWay/Pods-BuyTheWay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
