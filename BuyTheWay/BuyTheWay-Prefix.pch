@@ -12,6 +12,10 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "SNTheme.h"
 #import "UIView+SN_IBSetting.h"
+#import <SDAutoLayout/SDAutoLayout.h>
+#import "SDAutoLayoutModel+extendSDAutoLayout.h"
+#import "UIFont+FontNew.h"
+
 #endif /* BuyTheWay_Prefix_h */
 
 
@@ -25,3 +29,12 @@
 #define SCREEN_WIDTH    [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT   [UIScreen mainScreen].bounds.size.height
 #define RGB(R,G,B) [UIColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:1.0f]
+#define colo51    RGB(51,51,51);
+#define colo230    RGB(230,230,230);
+#define colo153    RGB(153,153,153);
+#define colo204    RGB(204,204,204);
+#define coloNav    RGB(38,116,154);
+
+
+#define SCALE_WIDTH SCREEN_WIDTH / 375
+#define SCALE_HEIGHT SCREEN_HEIGHT / 667

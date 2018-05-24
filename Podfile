@@ -18,4 +18,5 @@ pod 'UMCShare/UI'
 pod 'UMCShare/Social/Facebook'
  pod 'UMCShare/Social/Twitter'
  pod 'IQKeyboardManager'
+ pod 'SDAutoLayout'
 end
