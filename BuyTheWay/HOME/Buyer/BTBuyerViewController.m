@@ -11,9 +11,13 @@
 #import "BTBuyerSendViewController.h"
 #import "BTFlightAddressCell.h"
 #import "BTLuggageTableViewCell.h"
+#import "BTBuyerSendViewController.h"
+
 @interface BTBuyerViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)UIButton *nextBtn;
+@property(nonatomic,assign)BOOL xinliBool;
+@property(nonatomic,assign)BOOL suishen;
 @end
 
 @implementation BTBuyerViewController
@@ -35,11 +39,19 @@
     [self.tableView registerClass:[BTFlightAddressCell class] forCellReuseIdentifier:@"BTFlightAddressCell"];
     [self.tableView registerClass:[BTLuggageTableViewCell class] forCellReuseIdentifier:@"BTLuggageTableViewCell"];
     [self.view addSubview:self.tableView];
+    self.nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.nextBtn setTitle:@"下一步" forState:0];
+    [self.nextBtn addTarget:self action:@selector(tapNestBtn) forControlEvents:1<<6];
+    [self.view addSubview:self.nextBtn];
+    [self.nextBtn setTitleColor:[UIColor whiteColor] forState:0];
+    self.nextBtn.backgroundColor = coloNav;
+    self.nextBtn.sd_layout.heightIsScale(45).leftSpaceToView(self.view, 0).rightSpaceToView(self.view, 0).bottomSpaceToView(self.view, 0);
+    self.tableView.sd_layout.topSpaceToViewScale(self.view, 0).rightSpaceToView(self.view, 0).leftSpaceToView(self.view, 0).bottomSpaceToView(self.nextBtn, 0);
     
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -52,7 +64,21 @@
         return cell;
     }else{
         BTLuggageTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"BTLuggageTableViewCell" forIndexPath:indexPath];
-        
+        if (indexPath.section == 1) {
+            cell.titleLbael.text = @"闲置的行李箱空间";
+        } else {
+            cell.titleLbael.text = @"闲置的随身携带行李空间";
+        }
+        cell.selectBtn.tag = indexPath.section;
+        WeakSelf(self)
+        cell.selectBlock = ^(BOOL isSelect, NSInteger tag) {
+            if (tag == 1) {
+                weakself.xinliBool = isSelect;
+            } else {
+                weakself.suishen = isSelect;
+            } 
+            [weakself.tableView reloadData];
+        };
         return cell;
     }
    
@@ -61,11 +87,28 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
         return 304/2 * SCALE_WIDTH;
+    }else if (indexPath.section == 1){
+        if (self.xinliBool == YES) {
+             return 340 * SCALE_WIDTH;
+        } else {
+            return 70 * SCALE_WIDTH ;
+        }
+        
     }else{
-         return 327 * SCALE_WIDTH;
+        if (self.suishen == YES) {
+            return 340 * SCALE_WIDTH;
+        } else {
+            return 70 * SCALE_WIDTH ;
+        }
     }
     
 }
+-(void)tapNestBtn{
+    BTBuyerSendViewController *vc = [[BTBuyerSendViewController alloc]init]; 
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

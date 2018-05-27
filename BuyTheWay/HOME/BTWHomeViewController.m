@@ -15,6 +15,7 @@
 #import "NSString+SHA.h"
 #import "Buy.pbobjc.h"
 #import "Sell.pbobjc.h"
+#import "BTBuyerViewController.h"
 @interface BTWHomeViewController ()
 @property(nonatomic,strong)UIButton *smgBtn;
 @property(nonatomic,strong)UIButton *registerBtn;
@@ -116,8 +117,10 @@
 
 -(void)registerbtn{
     
-
-    
+    BTBuyerViewController *vc = [[BTBuyerViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+   
 }
 -(void)login{
   

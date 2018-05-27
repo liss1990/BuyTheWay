@@ -10,5 +10,5 @@
 #import "Buy.pbobjc.h"
 #import "Business.pbobjc.h"
 @interface BTBuyerSendViewController : UIViewController
-@property(nonatomic,strong)SpaceInfo *sp;
+//@property(nonatomic,strong)SpaceInfo *sp;
 @end

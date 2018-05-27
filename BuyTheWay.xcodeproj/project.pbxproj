@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		770B670D209EE1FD006C8191 /* BasicEncodingRules.m in Sources */ = {isa = PBXBuildFile; fileRef = 770B670A209EE1FD006C8191 /* BasicEncodingRules.m */; };
 		770B670E209EE1FD006C8191 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 770B670C209EE1FD006C8191 /* NSData+Base64.m */; };
+		7733BE3620B95D0500D7F034 /* BTInfomationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733BE3520B95D0500D7F034 /* BTInfomationView.m */; };
+		7733BE3E20B960E100D7F034 /* BTTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733BE3D20B960E100D7F034 /* BTTransferTableViewCell.m */; };
 		774A824B20A9D0F000290B12 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824A20A9D0F000290B12 /* libsqlite3.tbd */; };
 		774A824D20A9D0FF00290B12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824C20A9D0FF00290B12 /* CoreGraphics.framework */; };
 		774A824F20A9D14100290B12 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824E20A9D14100290B12 /* CoreData.framework */; };
@@ -47,7 +49,6 @@
 		77BC55652098BC4100836493 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC554E2098BC4100836493 /* YYMemoryCache.m */; };
 		77BC55692098BE7400836493 /* BTInterfacedConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC55682098BE7400836493 /* BTInterfacedConst.m */; };
 		77D947AD20B1B7E200BA09AA /* BTBuyerSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D947AB20B1B7E200BA09AA /* BTBuyerSendViewController.m */; };
-		77D947AE20B1B7E200BA09AA /* BTBuyerSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77D947AC20B1B7E200BA09AA /* BTBuyerSendViewController.xib */; };
 		77E7045220ADCED30007AED6 /* HYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7045020ADCED30007AED6 /* HYLoginViewController.m */; };
 		77E7045320ADCED30007AED6 /* HYLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77E7045120ADCED30007AED6 /* HYLoginViewController.xib */; };
 		77E7045C20ADD6830007AED6 /* BTSellerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7045A20ADD6830007AED6 /* BTSellerViewController.m */; };
@@ -148,6 +149,10 @@
 		770B670A209EE1FD006C8191 /* BasicEncodingRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicEncodingRules.m; sourceTree = "<group>"; };
 		770B670B209EE1FD006C8191 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		770B670C209EE1FD006C8191 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		7733BE3420B95D0500D7F034 /* BTInfomationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTInfomationView.h; sourceTree = "<group>"; };
+		7733BE3520B95D0500D7F034 /* BTInfomationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTInfomationView.m; sourceTree = "<group>"; };
+		7733BE3C20B960E100D7F034 /* BTTransferTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTTransferTableViewCell.h; sourceTree = "<group>"; };
+		7733BE3D20B960E100D7F034 /* BTTransferTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTTransferTableViewCell.m; sourceTree = "<group>"; };
 		774A824A20A9D0F000290B12 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		774A824C20A9D0FF00290B12 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		774A824E20A9D14100290B12 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -222,7 +227,6 @@
 		77BC55682098BE7400836493 /* BTInterfacedConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTInterfacedConst.m; sourceTree = "<group>"; };
 		77D947AA20B1B7E200BA09AA /* BTBuyerSendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTBuyerSendViewController.h; sourceTree = "<group>"; };
 		77D947AB20B1B7E200BA09AA /* BTBuyerSendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBuyerSendViewController.m; sourceTree = "<group>"; };
-		77D947AC20B1B7E200BA09AA /* BTBuyerSendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTBuyerSendViewController.xib; sourceTree = "<group>"; };
 		77E7044F20ADCED30007AED6 /* HYLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYLoginViewController.h; sourceTree = "<group>"; };
 		77E7045020ADCED30007AED6 /* HYLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYLoginViewController.m; sourceTree = "<group>"; };
 		77E7045120ADCED30007AED6 /* HYLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HYLoginViewController.xib; sourceTree = "<group>"; };
@@ -407,9 +411,9 @@
 		7793409320B5A5EA00C9250A /* Buyer */ = {
 			isa = PBXGroup;
 			children = (
+				7793409520B5A62600C9250A /* View */,
 				77D947AA20B1B7E200BA09AA /* BTBuyerSendViewController.h */,
 				77D947AB20B1B7E200BA09AA /* BTBuyerSendViewController.m */,
-				77D947AC20B1B7E200BA09AA /* BTBuyerSendViewController.xib */,
 				77E7046320ADDF920007AED6 /* BTBuyerViewController.h */,
 				77E7046420ADDF920007AED6 /* BTBuyerViewController.m */,
 				77E7046520ADDF920007AED6 /* BTBuyerViewController.xib */,
@@ -421,7 +425,6 @@
 			isa = PBXGroup;
 			children = (
 				7793409920B5ACE200C9250A /* Controller */,
-				7793409520B5A62600C9250A /* View */,
 			);
 			path = Seller;
 			sourceTree = "<group>";
@@ -435,6 +438,10 @@
 				775F1D7320B718D8007F882A /* BTLuggageTableViewCell.m */,
 				775F1D7520B71A2B007F882A /* BTCalibrationView.h */,
 				775F1D7620B71A2B007F882A /* BTCalibrationView.m */,
+				7733BE3420B95D0500D7F034 /* BTInfomationView.h */,
+				7733BE3520B95D0500D7F034 /* BTInfomationView.m */,
+				7733BE3C20B960E100D7F034 /* BTTransferTableViewCell.h */,
+				7733BE3D20B960E100D7F034 /* BTTransferTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -914,7 +921,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77D947AE20B1B7E200BA09AA /* BTBuyerSendViewController.xib in Resources */,
 				77E7045D20ADD6830007AED6 /* BTSellerViewController.xib in Resources */,
 				77F5C69B2095CBEE00709FDC /* LaunchScreen.storyboard in Resources */,
 				77F5C6982095CBEE00709FDC /* Assets.xcassets in Resources */,
@@ -1023,6 +1029,7 @@
 				77BC555F2098BC4100836493 /* AFSecurityPolicy.m in Sources */,
 				77FB60B820A1DD38002FB1B8 /* BTWIMViewController.m in Sources */,
 				77BC555C2098BC4100836493 /* AFURLSessionManager.m in Sources */,
+				7733BE3E20B960E100D7F034 /* BTTransferTableViewCell.m in Sources */,
 				77BC55512098BC4100836493 /* UIProgressView+AFNetworking.m in Sources */,
 				770B670D209EE1FD006C8191 /* BasicEncodingRules.m in Sources */,
 				77BC55542098BC4100836493 /* UIImageView+AFNetworking.m in Sources */,
@@ -1087,6 +1094,7 @@
 				77BC55592098BC4100836493 /* AFImageDownloader.m in Sources */,
 				775A88C920A6E72100E7B415 /* Orders.pbobjc.m in Sources */,
 				77BC555A2098BC4100836493 /* AFURLResponseSerialization.m in Sources */,
+				7733BE3620B95D0500D7F034 /* BTInfomationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

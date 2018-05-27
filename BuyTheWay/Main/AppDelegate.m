@@ -24,7 +24,8 @@
 //    [[FBSDKApplicationDelegate sharedInstance] application:application
 //                             didFinishLaunchingWithOptions:launchOptions];
      [UMConfigure initWithAppkey:@"5af994768f4a9d68520000e6" channel:nil];
-    self.window.rootViewController = [[BTBuyerViewController alloc]init];  // [[BTWRootViewController alloc]init];
+//    [[BTBuyerViewController alloc]init];
+    self.window.rootViewController =  [[BTWRootViewController alloc]init];
     [self.window makeKeyAndVisible];
     
     
