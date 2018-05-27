@@ -13,7 +13,7 @@
 #import "HYLoginViewController.h"
 #import "BTBuyerViewController.h"
 #import "BTBoxView.h"
-#import "HHH.h"
+//#import "HHH.h"
 #import "BTLuggageTableViewCell.h"
 
 #define L2 FIX_SCREEN_WIDTH(100)
@@ -23,7 +23,7 @@
 @property(nonatomic,assign)CGFloat h1;
 @property(nonatomic,assign)CGFloat w;
 @property(nonatomic,assign)CGFloat l;
-@property(nonatomic,strong)HHH *h;
+//@property(nonatomic,strong)HHH *h;
 @property(nonatomic,strong)UITableView *tableView;
 @end
 //

@@ -10,9 +10,9 @@
 //self.h1 = 150;
 //self.w = 70;
 //self.l = 90;
-#define L FIX_SCREEN_WIDTH(90)
+#define L FIX_SCREEN_WIDTH(91)
 #define H FIX_SCREEN_WIDTH(150)
-#define W FIX_SCREEN_WIDTH(70)
+#define W FIX_SCREEN_WIDTH(72)
 
 @implementation BTLuggageTableViewCell
 
@@ -71,26 +71,36 @@
     self.h1 = H;
     self.w = W;
     self.l = L;
-    self.boxView = [[BTBoxView alloc]initWithFrame:CGRectMake(10*SCALE_WIDTH, 70*SCALE_WIDTH, L  + W  * 0.707 ,H + W * 0.707 )];
+    self.boxView = [[BTBoxView alloc]initWithFrame:CGRectMake(1,1, L  + W  * 0.707 ,H + W * 0.707 )];
     self.boxView.maxH = self.h1;
-    self.boxView.maxW =  self.w;
+    self.boxView.maxW = self.w;
     self.boxView.maxL = self.l;
     [self.boxView updatBoxModel];
-    [self.bgView addSubview:self.boxView ];
-  
+    [self.bgView addSubview:self.boxView];
+    self.boxView.sd_layout.leftSpaceToViewScale(self.bgView, 10).topSpaceToViewScale(self.lineView, 20).widthIs( L  + W  * 0.707 ).heightIs(H + W * 0.707 );
+//
+    self.smallView = [[UIView alloc]initWithFrame:CGRectMake(10*SCALE_WIDTH, 70*SCALE_WIDTH, L  + W  * 0.707 ,H + W * 0.707 )];
+    self.smallView.backgroundColor = [UIColor whiteColor];
+    [self.bgView addSubview:self.smallView];
+    self.smallView.sd_layout.leftSpaceToViewScale(self.bgView, 10).topSpaceToViewScale(self.lineView, 20).widthIs(W  * 0.707 ).heightIs(1);
+    self.smallView1 = [[UIView alloc]initWithFrame:CGRectMake(10*SCALE_WIDTH, 70*SCALE_WIDTH, L  + W  * 0.707 ,H + W * 0.707 )];
+    self.smallView1.backgroundColor = [UIColor whiteColor];
+    [self.bgView addSubview:self.smallView1];
+    self.smallView1.sd_layout.rightEqualToView(self.boxView).bottomEqualToView(self.boxView).widthIs(1).heightIs(W  * 0.707);
+    
+    
     
     self.lengthView = [[BTCalibrationView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.LuggImage.frame), CGRectGetMaxY(self.lineView.frame)+10, (SCREEN_WIDTH-30-20)/2, 46)]; 
     [self.bgView addSubview:self.lengthView ];
     self.lengthView.typeString = @"长";
     self.lengthView.typeSlider.tag = 0;
-    self.lengthView.typeSlider.value = 0.1;
     WeakSelf(self)
     self.lengthView.sliderBlock = ^(CGFloat sdValue, NSInteger tag) {
 //        weakself.sliderBlock(sdValue, tag);
         [weakself updataSenderData];
     };
     self.lengthView.sd_layout.topSpaceToViewScale(self.lineView, 15)
-    .widthIsScale((SCREEN_WIDTH - 50)/2).rightSpaceToViewScale(self.bgView, 20).heightIsScale(46);
+    .leftSpaceToViewScale(self.boxView, 25).rightSpaceToViewScale(self.bgView, 15).heightIsScale(46);
     
     self.widthView = [[BTCalibrationView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.LuggImage.frame), CGRectGetMaxY(self.lineView.frame)+10, (SCREEN_WIDTH-30-20)/2, 46)];
     self.widthView.typeString = @"宽";
@@ -102,7 +112,7 @@
     };
     [self.bgView addSubview:self.widthView ];
     self.widthView.sd_layout.topSpaceToViewScale(self.lengthView, 15)
-    .widthIsScale((SCREEN_WIDTH - 50)/2).rightSpaceToViewScale(self.bgView, 20).heightIsScale(46);
+    .leftSpaceToViewScale(self.boxView, 25).rightSpaceToViewScale(self.bgView, 15).heightIsScale(46);
     
     self.heightView = [[BTCalibrationView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.LuggImage.frame), CGRectGetMaxY(self.lineView.frame)+10, (SCREEN_WIDTH-30-20)/2, 46)];
     self.heightView.typeString = @"高";
@@ -113,7 +123,7 @@
     [self.bgView addSubview:self.heightView ];
     
     self.heightView.sd_layout.topSpaceToViewScale(self.widthView, 15)
-    .widthIsScale((SCREEN_WIDTH - 50)/2).rightSpaceToViewScale(self.bgView, 20).heightIsScale(46);
+    .leftSpaceToViewScale(self.boxView, 25).rightSpaceToViewScale(self.bgView, 15).heightIsScale(46);
     
     self.weightView = [[BTCalibrationView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.LuggImage.frame), CGRectGetMaxY(self.boxView.frame)+30, (SCREEN_WIDTH-30-20)/2, 46)];
     self.weightView.typeString = @"重量";
@@ -128,8 +138,6 @@
     CGFloat l = L * self.lengthView.typeSlider.value;
     CGFloat w = W * self.widthView.typeSlider.value;
     CGFloat h = H * self.heightView.typeSlider.value;
-    
-    
     [self.boxView updateL:l  w:w h: h ];
 }
 

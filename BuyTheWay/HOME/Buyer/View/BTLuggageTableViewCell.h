@@ -28,7 +28,8 @@ typedef void(^selectBtnBlock)(BOOL isSelect,NSInteger tag);
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)UIImageView *LuggImage;
 @property(nonatomic,strong)BTBoxView *boxView;
-
+@property(nonatomic,strong)UIView *smallView;
+@property(nonatomic,strong)UIView *smallView1;
 
 @property(nonatomic,assign)CGFloat h1;
 @property(nonatomic,assign)CGFloat w;

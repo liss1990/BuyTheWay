@@ -13,8 +13,6 @@
 		7733BE3E20B960E100D7F034 /* BTTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733BE3D20B960E100D7F034 /* BTTransferTableViewCell.m */; };
 		7733BE4520BAA44100D7F034 /* BTBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733BE4420BAA44100D7F034 /* BTBoxView.m */; };
 		7733BE4D20BAA46400D7F034 /* BoxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733BE4C20BAA46400D7F034 /* BoxModel.m */; };
-		7733BE5220BACB6500D7F034 /* HHH.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733BE4F20BACB6100D7F034 /* HHH.m */; };
-		7733BE5320BACB6500D7F034 /* MyNewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733BE5120BACB6500D7F034 /* MyNewView.m */; };
 		774A824B20A9D0F000290B12 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824A20A9D0F000290B12 /* libsqlite3.tbd */; };
 		774A824D20A9D0FF00290B12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824C20A9D0FF00290B12 /* CoreGraphics.framework */; };
 		774A824F20A9D14100290B12 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824E20A9D14100290B12 /* CoreData.framework */; };
@@ -161,10 +159,6 @@
 		7733BE4420BAA44100D7F034 /* BTBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBoxView.m; sourceTree = "<group>"; };
 		7733BE4B20BAA46400D7F034 /* BoxModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxModel.h; sourceTree = "<group>"; };
 		7733BE4C20BAA46400D7F034 /* BoxModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxModel.m; sourceTree = "<group>"; };
-		7733BE4E20BACB6000D7F034 /* MyNewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNewView.h; sourceTree = "<group>"; };
-		7733BE4F20BACB6100D7F034 /* HHH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHH.m; sourceTree = "<group>"; };
-		7733BE5020BACB6300D7F034 /* HHH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHH.h; sourceTree = "<group>"; };
-		7733BE5120BACB6500D7F034 /* MyNewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNewView.m; sourceTree = "<group>"; };
 		774A824A20A9D0F000290B12 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		774A824C20A9D0FF00290B12 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		774A824E20A9D14100290B12 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -444,10 +438,6 @@
 		7793409520B5A62600C9250A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7733BE5020BACB6300D7F034 /* HHH.h */,
-				7733BE4F20BACB6100D7F034 /* HHH.m */,
-				7733BE4E20BACB6000D7F034 /* MyNewView.h */,
-				7733BE5120BACB6500D7F034 /* MyNewView.m */,
 				7793409620B5ACDB00C9250A /* BTFlightAddressCell.h */,
 				7793409720B5ACDB00C9250A /* BTFlightAddressCell.m */,
 				775F1D7220B718D8007F882A /* BTLuggageTableViewCell.h */,
@@ -1065,7 +1055,6 @@
 				77F5C6F22095CE4600709FDC /* Sell.pbobjc.m in Sources */,
 				77E7045C20ADD6830007AED6 /* BTSellerViewController.m in Sources */,
 				77E7045220ADCED30007AED6 /* HYLoginViewController.m in Sources */,
-				7733BE5220BACB6500D7F034 /* HHH.m in Sources */,
 				77F4A2F520A0C3BD00B0D406 /* BTWNetworkHelper.m in Sources */,
 				77BC55642098BC4100836493 /* YYKVStorage.m in Sources */,
 				77FB608C20A1D810002FB1B8 /* BTWRootViewController.m in Sources */,
@@ -1118,7 +1107,6 @@
 				775A88C920A6E72100E7B415 /* Orders.pbobjc.m in Sources */,
 				77BC555A2098BC4100836493 /* AFURLResponseSerialization.m in Sources */,
 				7733BE3620B95D0500D7F034 /* BTInfomationView.m in Sources */,
-				7733BE5320BACB6500D7F034 /* MyNewView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

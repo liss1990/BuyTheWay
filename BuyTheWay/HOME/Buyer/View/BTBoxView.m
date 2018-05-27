@@ -15,11 +15,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.boxBig = [[BoxModel alloc]init];
-        self.boxmix = [[BoxModel alloc]init];
-        //        [self.boxBig updateL:100 w:60 h:150];
+        self.boxmix = [[BoxModel alloc]init]; 
         self.backgroundColor = [UIColor whiteColor];
-        //        self.context = UIGraphicsGetCurrentContext();
-        //        [self huabu1:self.boxBig contxt:self.context color:[UIColor whiteColor] isBgBox:YES];
     }
     return self;
 }
@@ -39,7 +36,6 @@
 }
 - (void)drawRect:(CGRect)rect {
     self.context = UIGraphicsGetCurrentContext();
-    //    self.context2 = UIGraphicsGetCurrentContext();
     [self huabu1:self.boxBig contxt:self.context color:[UIColor whiteColor] isBgBox:YES];
     [self huabu1:self.boxmix contxt:self.context color:[UIColor colorWithRed:45/255.0 green:165/255.0 blue:152/255.0   alpha:1] isBgBox:NO];
 }
@@ -52,9 +48,10 @@
     [self update];
 }
 -(void)update{
-    //    CGContextClosePath(self.context);
     [self setNeedsDisplay];
 }
+
+
 
 -(void)huabu1:(BoxModel *)box contxt:(CGContextRef )context color:(UIColor*)color isBgBox:(BOOL)isBgBox {
     [color set];
@@ -67,18 +64,18 @@
     sPoints0[3] = box.z3;//self.z3;
     CGContextAddLines(context, sPoints0, 4);//添加线
     //     CGContextSetLineWidth(context, 1);
+    if (isBgBox == YES) {
+        [[UIColor colorWithRed:179/255.0 green:179/255.0 blue:179/255.0 alpha:1]setStroke];
+    } else {
+        [color setStroke];
+    }
     CGContextClosePath(context);//封起来
     ///画底部线
     //    CGFloat dashArray[] = {5, 5}; // 表示先绘制10个点，再跳过10个点
     //    CGContextSetLineWidth(context, 0.3); // 设置线的宽度
     //    CGContextSetLineDash(context, 0, dashArray, 2); // 画虚
     //    [color setStroke];
-    if (isBgBox == YES) {
-        [[UIColor colorWithRed:179/255.0 green:179/255.0 blue:179/255.0 alpha:1]setStroke];
-    } else {
-        
-        [color setStroke];
-    }
+  
     CGContextDrawPath(context, kCGPathFillStroke); //根据坐标绘制路径
     
     ////画右边

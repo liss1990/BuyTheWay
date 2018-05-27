@@ -11,8 +11,7 @@
 @interface BTBoxView : UIView
 @property(nonatomic,strong)BoxModel *boxBig;
 @property(nonatomic,strong)BoxModel *boxmix;
-@property(nonatomic,assign)CGContextRef context;
-@property(nonatomic,assign)CGContextRef context2;
+@property(nonatomic,assign)CGContextRef context; 
 @property(nonatomic,assign)CGFloat maxL;
 @property(nonatomic,assign)CGFloat maxW;
 @property(nonatomic,assign)CGFloat maxH;
