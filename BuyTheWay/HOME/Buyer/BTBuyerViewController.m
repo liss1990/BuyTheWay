@@ -47,6 +47,7 @@
     self.nextBtn.backgroundColor = coloNav;
     self.nextBtn.sd_layout.heightIsScale(45).leftSpaceToView(self.view, 0).rightSpaceToView(self.view, 0).bottomSpaceToView(self.view, 0);
     self.tableView.sd_layout.topSpaceToViewScale(self.view, 0).rightSpaceToView(self.view, 0).leftSpaceToView(self.view, 0).bottomSpaceToView(self.nextBtn, 0);
+//    self.xinliBool = YES;
     
 }
 
@@ -56,6 +57,12 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
 }
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSLog(@"eeee");
+}
+
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0){
@@ -81,7 +88,6 @@
         };
         return cell;
     }
-   
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -89,14 +95,14 @@
         return 304/2 * SCALE_WIDTH;
     }else if (indexPath.section == 1){
         if (self.xinliBool == YES) {
-             return 340 * SCALE_WIDTH;
+             return 370 * SCALE_WIDTH;
         } else {
             return 70 * SCALE_WIDTH ;
         }
         
     }else{
         if (self.suishen == YES) {
-            return 340 * SCALE_WIDTH;
+            return 370 * SCALE_WIDTH;
         } else {
             return 70 * SCALE_WIDTH ;
         }

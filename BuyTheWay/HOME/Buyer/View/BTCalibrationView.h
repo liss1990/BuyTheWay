@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^SliderUpdateBlock)(CGFloat sdValue , NSInteger tag);
+
 @interface BTCalibrationView : UIView
 @property(nonatomic,strong)NSString *typeString;
 /**
@@ -21,4 +23,8 @@
 @property(nonatomic,strong)UILabel *type30Label;
 @property(nonatomic,strong)UILabel *type60Label;
 @property(nonatomic,strong)UILabel *type100Label;
+@property(nonatomic,strong)SliderUpdateBlock sliderBlock;
+
+@property(nonatomic,assign)CGFloat date;
+
 @end
