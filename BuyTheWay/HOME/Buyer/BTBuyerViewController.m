@@ -18,9 +18,12 @@
 @property(nonatomic,strong)UIButton *nextBtn;
 @property(nonatomic,assign)BOOL xinliBool;
 @property(nonatomic,assign)BOOL suishen;
+@property(nonatomic,strong)UIDatePicker *datePer;
 @end
 
 @implementation BTBuyerViewController
+
+ 
 
 - (void)viewDidLoad {
     [super viewDidLoad];

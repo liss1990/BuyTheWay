@@ -20,6 +20,23 @@
     
 }
 
+-(void)setIsInfo:(NSString *)isInfo{
+    if ([isInfo isEqualToString:@"1"] ) {
+        self.titleImge.image = [UIImage imageNamed:@"ic_information_normal"];
+        self.titleLabel.text = @"收获时间";
+        self.detailLable.text = @"买家需在此时间前送货给你";
+        self.regionView.sd_resetLayout.topSpaceToViewScale(self.lineView, 0).leftSpaceToViewScale(self.bgView, 0).rightSpaceToViewScale(self.bgView, 0).heightIsScale(50);
+        self.regionView.typeString = @"time";
+        [self.peopleView removeFromSuperview];
+        [self.phoneView removeFromSuperview];
+        [self.addressView removeFromSuperview];
+        [self.emailImage removeFromSuperview];
+    } else {
+        
+    }
+    
+}
+
 
 -(void)initView{
     self.backgroundColor = colobg;
@@ -36,7 +53,12 @@
     self.titleImge = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ic_information_normal"]];
     self.titleImge.contentMode = UIViewContentModeScaleAspectFit;
     [self.bgView addSubview:self.titleImge];
-    self.titleImge.sd_layout.topSpaceToViewScale(self.bgView, 10).leftSpaceToViewScale(self.bgView, 10).widthIsScale(20).heightIsScale(18);
+    self.titleImge.sd_layout.topSpaceToViewScale(self.bgView, 10).leftSpaceToViewScale(self.bgView, 10).widthIsScale(18).heightIsScale(20);
+    
+    self.emailImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ic_envelope_normal"]];
+    self.emailImage.contentMode = UIViewContentModeScaleAspectFit;
+    [self.bgView addSubview:self.emailImage];
+    self.emailImage.sd_layout.bottomSpaceToViewScale(self.bgView, 32).rightSpaceToViewScale(self.bgView, 0).heightIsScale(104).widthIsScale(127);
     self.titleLabel = [[UILabel alloc]init];
     self.titleLabel.text = @"个人信息";
     self.titleLabel.textColor = colo51
@@ -53,21 +75,29 @@
     self.lineView.backgroundColor = colobg;
     [self.bgView addSubview:self.lineView];
     self.lineView.sd_layout.topSpaceToViewScale(self.detailLable, 10).leftSpaceToViewScale(self.bgView, 10).rightSpaceToViewScale(self.bgView, 10).heightIsScale(1);
+    
+ 
     self.peopleView = [[BTInfomationView alloc]init];
+    self.peopleView.typeString = @"name";
     [self.bgView addSubview:self.peopleView];
-    self.peopleView.sd_layout.topSpaceToViewScale(self.lineView, 0).leftSpaceToViewScale(self.bgView, 0).rightSpaceToViewScale(self.bgView, 0).heightIsScale(45);
+    self.peopleView.sd_layout.topSpaceToViewScale(self.lineView, 0).leftSpaceToViewScale(self.bgView, 0).rightSpaceToViewScale(self.bgView, 0).heightIsScale(50);
     
     self.regionView = [[BTInfomationView alloc]init];
+    self.regionView.typeString = @"region";
     [self.bgView addSubview:self.regionView];
-    self.regionView.sd_layout.topSpaceToViewScale(self.peopleView, 0).leftSpaceToViewScale(self.bgView, 0).rightSpaceToViewScale(self.bgView, 0).heightIsScale(45);
+    self.regionView.sd_layout.topSpaceToViewScale(self.peopleView, 0).leftSpaceToViewScale(self.bgView, 0).rightSpaceToViewScale(self.bgView, 0).heightIsScale(50);
+   
+    self.addressView = [[BTInfomationView alloc]init];
+    self.addressView.typeString = @"address";
+    [self.bgView addSubview:self.addressView];
+    self.addressView.sd_layout.topSpaceToViewScale(self.regionView, 0).leftSpaceToViewScale(self.bgView, 0).rightSpaceToViewScale(self.bgView, 0).heightIsScale(50);
     
+    self.phoneView = [[BTInfomationView alloc]init];
+    self.phoneView.typeString = @"phone";
+    [self.bgView addSubview:self.phoneView];
+    self.phoneView.sd_layout.topSpaceToViewScale(self.addressView, 0).leftSpaceToViewScale(self.bgView, 0).rightSpaceToViewScale(self.bgView, 0).heightIsScale(50);
     
-    
-    
-    
-    
-    
-    
+     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

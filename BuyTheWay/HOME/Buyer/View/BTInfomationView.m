@@ -56,14 +56,34 @@
 
 -(void)setTypeString:(NSString *)typeString{
     if ([typeString isEqualToString:@"name"]) {
-        
+        self.textField.placeholder = @"请输入收货人姓名";
+        self.titleImage.image  = [UIImage imageNamed:@"ic_name_normal"];
     }else if ([typeString isEqualToString:@"region"]) {
         self.addressBookBtn.hidden = YES;
         self.verticalLineView.hidden = YES;
+        self.textField.placeholder = @"请选择所在地区";
+        self.titleImage.image  = [UIImage imageNamed:@"ic_area_normal"];
+        self.textField.sd_resetLayout.centerYEqualToView(self).leftSpaceToViewScale(self.titleImage, 20).heightIsScale(30).rightSpaceToViewScale(self, 10);
+    }else if ([typeString isEqualToString:@"address"]) {
+        self.addressBookBtn.hidden = YES;
+        self.verticalLineView.hidden = YES;
+        self.textField.placeholder = @"请输入详细地址";
+        self.titleImage.image  = [UIImage imageNamed:@"ic_address_normal"];
+        self.textField.sd_resetLayout.centerYEqualToView(self).leftSpaceToViewScale(self.titleImage, 20).heightIsScale(30).rightSpaceToViewScale(self, 10);
     }else if ([typeString isEqualToString:@"phone"]) {
         self.addressBookBtn.hidden = YES;
         self.verticalLineView.hidden = YES;
+        self.textField.placeholder = @"请输入手机号";
+        self.titleImage.image  = [UIImage imageNamed:@"ic_number_normal"];
+        self.textField.sd_resetLayout.centerYEqualToView(self).leftSpaceToViewScale(self.titleImage, 20).heightIsScale(30).rightSpaceToViewScale(self, 10);
+    } else if ([typeString isEqualToString:@"time"]) {
+        self.addressBookBtn.hidden = YES;
+        self.verticalLineView.hidden = YES;
+        self.textField.placeholder = @"请选择收货时间";
+        self.titleImage.image  = [UIImage imageNamed:@"ic_time_normal"];
+        self.textField.sd_resetLayout.centerYEqualToView(self).leftSpaceToViewScale(self.titleImage, 20).heightIsScale(30).rightSpaceToViewScale(self, 10);
     }
+    
     
 }
 

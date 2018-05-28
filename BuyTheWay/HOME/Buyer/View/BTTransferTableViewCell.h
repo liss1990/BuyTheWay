@@ -19,4 +19,6 @@
 @property(nonatomic,strong)BTInfomationView *addressView;
 @property(nonatomic,strong)BTInfomationView *phoneView;
 @property(nonatomic,strong)UIImageView *emailImage;
+@property(nonatomic,copy)NSString *isInfo;
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "BTWRootViewController.h"
-
+#import "BBNavigationViewController.h"
 @interface BTWRootViewController ()
 
 @end
@@ -37,7 +37,7 @@
         [item setTitleTextAttributes:@{NSForegroundColorAttributeName: kHexRGB(0x222222)} forState:UIControlStateNormal];
         [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [SNTheme themeColor]} forState:UIControlStateSelected];
         
-        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
+        BBNavigationViewController *navi = [[BBNavigationViewController alloc] initWithRootViewController:vc];
         [vcs addObject:navi];
     }
     

@@ -9,6 +9,7 @@
 #import "BTBuyerSendViewController.h"
 #import "BTHTTPRequest.h"
 #import "BTTransferTableViewCell.h"
+#import "BTBuyerSuccessViewController.h"
 @interface BTBuyerSendViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)UIButton *backBtn;
@@ -24,8 +25,7 @@
 }
 
 -(void)initView{
-    self.view.backgroundColor = RGB(245, 245, 245);
-    
+    self.view.backgroundColor = RGB(245, 245, 245); 
     self.tableView = [[UITableView alloc]initWithFrame:CGRectZero];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -37,6 +37,7 @@
     self.tableView.sd_layout.topSpaceToViewScale(self.view, 0).rightSpaceToViewScale(self.view, 0).leftSpaceToViewScale(self.view, 0).bottomSpaceToViewScale(self.view, 45);
     self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.backBtn setTitle:@"上一步" forState:0];
+    [self.backBtn addTarget:self action:@selector(back) forControlEvents:1<<6];
     self.backBtn.titleLabel.font = [UIFont fontWithTheSizeScale:18];
     [self.backBtn setTitleColor:coloNav forState:0];
     self.backBtn.backgroundColor = [UIColor whiteColor];
@@ -47,10 +48,21 @@
     self.affirmBtn.titleLabel.font = [UIFont fontWithTheSizeScale:18];
     [self.affirmBtn setTitleColor:[UIColor whiteColor] forState:0];
     self.affirmBtn.backgroundColor = coloNav;
+    [self.affirmBtn addTarget:self action:@selector(comfitPush) forControlEvents:1<<6];
     [self.view addSubview:self.affirmBtn];
     self.affirmBtn.sd_layout.widthIs(SCREEN_WIDTH/2).topSpaceToViewScale(self.tableView, 0).rightSpaceToViewScale(self.view, 0).bottomSpaceToViewScale(self.view, 0);
 }
 
+-(void)back{
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+-(void)comfitPush{
+    BTBuyerSuccessViewController *vc = [[BTBuyerSuccessViewController alloc]init];
+    [self.navigationController pushViewController: vc animated:YES];
+}
+
+#pragma makr tableDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
@@ -60,17 +72,24 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BTTransferTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BTTransferTableViewCell" forIndexPath:indexPath];
-    
-    
-    return cell;
+    if (indexPath.section == 0) {
+        BTTransferTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BTTransferTableViewCell" forIndexPath:indexPath];
+        
+        
+        return cell;
+    } else {
+        BTTransferTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BTTransferTableViewCell" forIndexPath:indexPath];
+        cell.isInfo = @"1";
+        return cell;
+    }
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return  350;
+        return  FIX_SCREEN_WIDTH(272) ;
     }else{
-        return 120;
+        return FIX_SCREEN_WIDTH(125);
     } 
 }
 

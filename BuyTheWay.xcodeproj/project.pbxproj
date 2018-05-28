@@ -13,6 +13,10 @@
 		7733BE3E20B960E100D7F034 /* BTTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733BE3D20B960E100D7F034 /* BTTransferTableViewCell.m */; };
 		7733BE4520BAA44100D7F034 /* BTBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733BE4420BAA44100D7F034 /* BTBoxView.m */; };
 		7733BE4D20BAA46400D7F034 /* BoxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733BE4C20BAA46400D7F034 /* BoxModel.m */; };
+		773C01DF20BC594600A88BF2 /* BTBuyerSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773C01DD20BC594600A88BF2 /* BTBuyerSuccessViewController.m */; };
+		773C01E020BC594600A88BF2 /* BTBuyerSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773C01DE20BC594600A88BF2 /* BTBuyerSuccessViewController.xib */; };
+		773C01E820BC5AFE00A88BF2 /* BBNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773C01E720BC5AFE00A88BF2 /* BBNavigationViewController.m */; };
+		773C01EB20BC5B4900A88BF2 /* UIButton+extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 773C01EA20BC5B4900A88BF2 /* UIButton+extend.m */; };
 		774A824B20A9D0F000290B12 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824A20A9D0F000290B12 /* libsqlite3.tbd */; };
 		774A824D20A9D0FF00290B12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824C20A9D0FF00290B12 /* CoreGraphics.framework */; };
 		774A824F20A9D14100290B12 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A824E20A9D14100290B12 /* CoreData.framework */; };
@@ -159,6 +163,13 @@
 		7733BE4420BAA44100D7F034 /* BTBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBoxView.m; sourceTree = "<group>"; };
 		7733BE4B20BAA46400D7F034 /* BoxModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxModel.h; sourceTree = "<group>"; };
 		7733BE4C20BAA46400D7F034 /* BoxModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxModel.m; sourceTree = "<group>"; };
+		773C01DC20BC594600A88BF2 /* BTBuyerSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTBuyerSuccessViewController.h; sourceTree = "<group>"; };
+		773C01DD20BC594600A88BF2 /* BTBuyerSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBuyerSuccessViewController.m; sourceTree = "<group>"; };
+		773C01DE20BC594600A88BF2 /* BTBuyerSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTBuyerSuccessViewController.xib; sourceTree = "<group>"; };
+		773C01E620BC5AFD00A88BF2 /* BBNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationViewController.h; sourceTree = "<group>"; };
+		773C01E720BC5AFE00A88BF2 /* BBNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationViewController.m; sourceTree = "<group>"; };
+		773C01E920BC5B4900A88BF2 /* UIButton+extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+extend.h"; sourceTree = "<group>"; };
+		773C01EA20BC5B4900A88BF2 /* UIButton+extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+extend.m"; sourceTree = "<group>"; };
 		774A824A20A9D0F000290B12 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		774A824C20A9D0FF00290B12 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		774A824E20A9D14100290B12 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -423,6 +434,9 @@
 				77E7046320ADDF920007AED6 /* BTBuyerViewController.h */,
 				77E7046420ADDF920007AED6 /* BTBuyerViewController.m */,
 				77E7046520ADDF920007AED6 /* BTBuyerViewController.xib */,
+				773C01DC20BC594600A88BF2 /* BTBuyerSuccessViewController.h */,
+				773C01DD20BC594600A88BF2 /* BTBuyerSuccessViewController.m */,
+				773C01DE20BC594600A88BF2 /* BTBuyerSuccessViewController.xib */,
 			);
 			path = Buyer;
 			sourceTree = "<group>";
@@ -731,6 +745,8 @@
 		77FB608D20A1D86B002FB1B8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				773C01E920BC5B4900A88BF2 /* UIButton+extend.h */,
+				773C01EA20BC5B4900A88BF2 /* UIButton+extend.m */,
 				775F1D6F20B708FE007F882A /* UIFont+FontNew.h */,
 				775F1D7020B70900007F882A /* UIFont+FontNew.m */,
 				775F1D6D20B70674007F882A /* SDAutoLayoutModel+extendSDAutoLayout.h */,
@@ -744,6 +760,8 @@
 		77FB609B20A1DB7D002FB1B8 /* Commen */ = {
 			isa = PBXGroup;
 			children = (
+				773C01E620BC5AFD00A88BF2 /* BBNavigationViewController.h */,
+				773C01E720BC5AFE00A88BF2 /* BBNavigationViewController.m */,
 				77FB60A420A1DBD6002FB1B8 /* SNTheme.h */,
 				77FB60A720A1DBD7002FB1B8 /* SNTheme.m */,
 				77FB609D20A1DBD5002FB1B8 /* UIImage+RTTint.h */,
@@ -935,6 +953,7 @@
 				77F5C69B2095CBEE00709FDC /* LaunchScreen.storyboard in Resources */,
 				77F5C6982095CBEE00709FDC /* Assets.xcassets in Resources */,
 				77F4A2EE20A07F1E00B0D406 /* public_key.der in Resources */,
+				773C01E020BC594600A88BF2 /* BTBuyerSuccessViewController.xib in Resources */,
 				77E7045320ADCED30007AED6 /* HYLoginViewController.xib in Resources */,
 				77BC55502098BC4100836493 /* README.md in Resources */,
 				77F4A2EF20A07F1E00B0D406 /* private_key.p12 in Resources */,
@@ -1045,6 +1064,7 @@
 				770B670D209EE1FD006C8191 /* BasicEncodingRules.m in Sources */,
 				77BC55542098BC4100836493 /* UIImageView+AFNetworking.m in Sources */,
 				77FB60B420A1DD10002FB1B8 /* BTWVillageViewController.m in Sources */,
+				773C01E820BC5AFE00A88BF2 /* BBNavigationViewController.m in Sources */,
 				77BC55692098BE7400836493 /* BTInterfacedConst.m in Sources */,
 				77BC55552098BC4100836493 /* UIButton+AFNetworking.m in Sources */,
 				77BC55612098BC4100836493 /* PPNetworkCache.m in Sources */,
@@ -1084,6 +1104,7 @@
 				7793409820B5ACDC00C9250A /* BTFlightAddressCell.m in Sources */,
 				775A88CA20A6E72100E7B415 /* Thirds.pbobjc.m in Sources */,
 				77FB60BC20A1DD54002FB1B8 /* BTWMeViewController.m in Sources */,
+				773C01DF20BC594600A88BF2 /* BTBuyerSuccessViewController.m in Sources */,
 				77BC555B2098BC4100836493 /* AFHTTPSessionManager.m in Sources */,
 				77F5C6ED2095CE4600709FDC /* Village.pbobjc.m in Sources */,
 				77FB60AC20A1DBD7002FB1B8 /* UIView+SN_IBSetting.m in Sources */,
@@ -1097,6 +1118,7 @@
 				77F5C6EF2095CE4600709FDC /* Business.pbobjc.m in Sources */,
 				77BC55602098BC4100836493 /* PPNetworkHelper.m in Sources */,
 				77FB60A820A1DBD7002FB1B8 /* UIView+SN_LSCore.m in Sources */,
+				773C01EB20BC5B4900A88BF2 /* UIButton+extend.m in Sources */,
 				77F5C6F02095CE4600709FDC /* Addressee.pbobjc.m in Sources */,
 				775F1D7420B718D8007F882A /* BTLuggageTableViewCell.m in Sources */,
 				77F5C6F32095CE4600709FDC /* Messages.pbobjc.m in Sources */,
